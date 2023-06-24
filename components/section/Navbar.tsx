@@ -1,45 +1,40 @@
 import Image from "next/image";
 import { Search, ShoppingCart } from "lucide-react";
+import Link from "next/link";
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from "./../ui/navigation-menu";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center h-20 px-20">
+    <nav className="flex justify-between items-center h-20 px-20 m-3">
       <Image src={"/Logo.webp"} alt="website logo" width={150} height={150} />
       <div>
         <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem className="space-x-5">
-              <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-              <NavigationMenuTrigger>Item two</NavigationMenuTrigger>
-              <NavigationMenuTrigger>Item three</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink>Link</NavigationMenuLink>
-              </NavigationMenuContent>
+          <NavigationMenuList className=" justify-items-center">
+            <NavigationMenuItem className="space-x-12 text-lg">
+              <Link href="">Kids</Link>
+              <Link href=" ">Boys</Link>
+              <Link href=" ">Men</Link>
+              <Link href=" ">All Products</Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-      <div className="flex">
-        <Search className="bg-white rounded-l" />{" "}
+      <div className="flex border border-black-600 rounded-lg items-center pl-2">
+        <Search className="bg-white rounded-l h-4" />{" "}
         <input
           type="text"
           placeholder="What you are looking for"
-          className="rounded-r"
+          className="rounded-r p-1"
         ></input>
       </div>
-      <div className="p-2 rounded-full bg-gray-300">
+      <div className="p-2 rounded-full bg-gray-200 hover:scale-125 ease-in duration-300">
         <ShoppingCart className="relative" />
-        <span className="absolute top-2 right-20 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
+        <span className="absolute top-6 right-20 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
           0
         </span>
       </div>
