@@ -11,15 +11,15 @@ import {
 const Navbar = () => {
   return (
     <nav className="flex justify-between items-center h-20 px-20 m-3">
-      <Image src={"/Logo.webp"} alt="website logo" width={150} height={150} />
+      <Link href=""><Image src={"/Logo.webp"} alt="website logo" width={150} height={150} /></Link>
       <div>
         <NavigationMenu>
           <NavigationMenuList className=" justify-items-center">
             <NavigationMenuItem className="space-x-12 text-lg">
-              <Link href="">Kids</Link>
-              <Link href=" ">Boys</Link>
-              <Link href=" ">Men</Link>
-              <Link href=" ">All Products</Link>
+              <Link href="/kids">Kids</Link>
+              <Link href="/boys">Boys</Link>
+              <Link href="/men">Men</Link>
+              <Link href="/allprod">All Products</Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

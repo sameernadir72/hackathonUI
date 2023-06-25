@@ -4,40 +4,53 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
-        <div>
-            <Image src="/Logo.webp" alt="logo" width={150} height={150}></Image>
-            <p className="leading-7 [&:not(:first-child)]:mt-6">
-                Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.
-            </p>
-            <div className="flex space-x-4">
-                <Link href="" className="bg-gray-200 rounded-lg p-2"><TwitterIcon /></Link>
-                <Link href="" className="bg-gray-200 rounded-lg p-2"><FacebookIcon /></Link>
-                <Link href="" className="bg-gray-200 rounded-lg p-2"><LinkedinIcon /></Link>
-            </div>
-            <div>
-                <h4 className="scroll-m-20 text-xl font-bold tracking-tight text-gray-600">
-                    Company
-                </h4>
-                <div className="leading-7 [&:not(:first-child)]:mt-6">
-                <p className="">About</p>
-                <p>Terms Of Use</p>
-                <p className=""> Privacy Policy</p>
-                <p className="">How it Works</p>
-                <p className="">Contact Us</p>
+        <footer className="flex px-20 m-3">
+            <div className="max-w-xs flex flex-col justify-between">
+                <Image src="/Logo.webp" alt="logo" width={150} height={150}></Image>
+                <p className="leading-7">
+                    Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.
+                </p>
+                <div className="flex space-x-4">
+                    <Link href="" className="bg-gray-200 rounded-lg p-2"><TwitterIcon /></Link>
+                    <Link href="" className="bg-gray-200 rounded-lg p-2"><FacebookIcon /></Link>
+                    <Link href="" className="bg-gray-200 rounded-lg p-2"><LinkedinIcon /></Link>
                 </div>
-                <h4 className="scroll-m-20 text-xl font-bold tracking-tight text-gray-600">
-                    Support
-                </h4>
-                <p className="">Support Carrer</p>
-                <p>24h Service</p>
-                <p className=""> Quick Chat</p>
-                <h4 className="scroll-m-20 text-xl font-bold tracking-tight text-gray-600">
-                    Contact
-                </h4>
-                <p className="">Whatsapp</p>
-                <p>Support 24h</p>
             </div>
-        </div>
+
+            <div className="flex space-x-28 mx-auto">
+                <div>
+                    <h4 className="scroll-m-20 text-xl font-bold tracking-tight text-gray-600">
+                        Company
+                    </h4>
+                    <div className="mt-5 space-y-4">
+                        <p><Link href="" className="">About</Link></p>
+                        <p><Link href="">Terms Of Use</Link></p>
+                        <p><Link href=""> Privacy Policy</Link></p>
+                        <p><Link href="">How it Works</Link></p>
+                        <p><Link href="">Contact Us</Link></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 className="scroll-m-20 text-xl font-bold tracking-tight text-gray-600">
+                        Support
+                    </h4>
+                    <div className="mt-5 space-y-4">
+                    <p><Link href="">Support Carrer</Link></p>
+                    <p><Link href="">24h Service</Link></p>
+                    <p><Link href=""> Quick Chat</Link></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 className="scroll-m-20 text-xl font-bold tracking-tight text-gray-600">
+                        Contact
+                    </h4>
+                    <div className="mt-5 space-y-4">
+                    <p className="">Whatsapp</p>
+                    <p>Support 24h</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     )
 }
 
