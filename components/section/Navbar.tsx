@@ -29,12 +29,12 @@ const Navbar = () => {
         <input
           type="text"
           placeholder="What you are looking for"
-          className="rounded-r p-1"
+          className="rounded-r p-1 w-72"
         ></input>
       </div>
       <div className="p-2 rounded-full bg-gray-200 hover:scale ease-in duration-300">
         <ShoppingCart className="relative" />
-        <span className="absolute top-6 right-20 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
+        <span className="absolute top-6 right-32 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
           0
         </span>
       </div>
