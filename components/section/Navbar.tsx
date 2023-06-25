@@ -10,7 +10,7 @@ import {
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center h-20 px-28 m-4">
+    <nav className="flex justify-between items-center h-20 m-4 px-28">
       <Link href=""><Image src={"/Logo.webp"} alt="website logo" width={150} height={150} /></Link>
       <div>
         <NavigationMenu>
