@@ -1,6 +1,10 @@
 import { ShoppingCart } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Featured1 from  "../../public/Featured1.webp"
+import Featured2 from  "../../public/Featured2.webp"
+import Featured3 from  "../../public/Featured3.webp"
+import Featured4 from  "../../public/Featured4.webp"
 
 const Hero = () => {
   return (
@@ -17,9 +21,14 @@ const Hero = () => {
       <Button className="bg-black py-7">
         <ShoppingCart className="mr-2 h-5 w-5" /> Start Shopping
       </Button>
+      <div className="flex space-x-5">
+      <Image src={Featured1} alt="Featured1"></Image>
+      <Image src={Featured2} alt="Featured2"></Image>
+      <Image src={Featured3} alt="Featured3"></Image>
+      <Image src={Featured4} alt="Featured4"></Image>
+      </div>
     </div>
-
-    <Image className="" src="/hero.png" alt="hero image" width={350} height={100}></Image>
+    <Image className="ml-40" src="/hero.png" alt="hero image" width={400} height={100}></Image>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import pm3 from '../../public/pm3.jpg'
 const Desc = () => {
     return (
-        <div>
+        <div className="">
         <div className="flex justify-end mr-24 mb-3">
             <h1 className="scroll-m-20 text-4xl  font-bold tracking-normal lg:text-5xl max-w-md">
             Unique and Authentic Vintage Designer Jewellery
