@@ -10,16 +10,16 @@ import {
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center h-20 px-20 m-3">
-      <Image src={"/Logo.webp"} alt="website logo" width={150} height={150} />
+    <nav className="flex justify-between items-center h-20 m-4 px-28">
+      <Link href=""><Image src={"/Logo.webp"} alt="website logo" width={150} height={150} /></Link>
       <div>
         <NavigationMenu>
           <NavigationMenuList className=" justify-items-center">
             <NavigationMenuItem className="space-x-12 text-lg">
-              <Link href="">Kids</Link>
-              <Link href=" ">Boys</Link>
-              <Link href=" ">Men</Link>
-              <Link href=" ">All Products</Link>
+              <Link href="/kids">Kids</Link>
+              <Link href="/boys">Boys</Link>
+              <Link href="/men">Men</Link>
+              <Link href="/allprod">All Products</Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -29,12 +29,12 @@ const Navbar = () => {
         <input
           type="text"
           placeholder="What you are looking for"
-          className="rounded-r p-1"
+          className="rounded-r p-1 w-72"
         ></input>
       </div>
-      <div className="p-2 rounded-full bg-gray-200 hover:scale-125 ease-in duration-300">
+      <div className="p-2 rounded-full bg-gray-200 hover:scale ease-in duration-300">
         <ShoppingCart className="relative" />
-        <span className="absolute top-6 right-20 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
+        <span className="absolute top-6 right-32 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
           0
         </span>
       </div>
