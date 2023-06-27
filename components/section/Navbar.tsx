@@ -29,8 +29,8 @@ const Navbar = () => {
         <input
           type="text"
           placeholder="What you are looking for"
-          className="rounded-r p-1 w-72"
-        ></input>
+          className="rounded-r p-1 w-72 focus:outline-none"
+        />
       </div>
       <div className="p-2 rounded-full bg-gray-200 hover:scale ease-in duration-300">
         <ShoppingCart className="relative" />
