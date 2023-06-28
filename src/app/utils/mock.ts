@@ -5,7 +5,7 @@ import bj from "../../../public/bj.png"
 import ps from "../../../public/ps.png"
 import gorchii from "../../../public/gorchii.png"
 import pink from "../../../public/pink.png"
-import pm2 from "../../../public/pm2.png"
+import brshirt from "../../../public/brshirt.png"
 import mj from "../../../public/mj.png"
 import bs from "../../../public/bs.png"
 
@@ -64,7 +64,7 @@ export const products:Product[] = [
         name:"Brown",
         price:115,
         category:"boys",
-        image: pm2
+        image: brshirt
     },
     {
         id:9,

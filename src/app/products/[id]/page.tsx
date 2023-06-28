@@ -1,14 +1,15 @@
 import { products } from "@/app/utils/mock";
-import ProductCard from "../../../../components/section/ProductCard";
+import { ProductView } from "../../../../components/section/ProductView";
+import { Product } from "@/app/utils/types";
 
-const filterProducts = (id:number) => {
-    return (products.filter((product) => (
-        product.id === id
-    )))
-}
+
 export default function Page({ params }: { params: { id: number} }) {
-    const filteredProducts = filterProducts(params.id);
+    const product:Product = products[params.id-1];
     return (
+
+      <div>
+        <ProductView {...product} />
+
     <div className="grid grid-cols-4 px-20 mx-auto">
       <h1 className="font-extrabold">{params.id}</h1>
       {
@@ -17,6 +18,7 @@ export default function Page({ params }: { params: { id: number} }) {
             price={product.price} image={product.image} ></ProductCard>
         ))
       }
+
       </div>
   )
 }

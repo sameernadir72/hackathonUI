@@ -1,9 +1,11 @@
 import Image from "next/image";
-import pink from '../../public/pink.png'
-import gorchii from '../../public/gorchii.png'
-import ps from '../../public/ps.png'
+import ProductCard from "./ProductCard";
+import { products } from "@/app/utils/mock";
 
 const Products = () => {
+    const p1 = products[6]; 
+    const p2 = products[4]; 
+    const p3 = products[3]; 
     return(
         <div className="pt-20 space-y-14">
             <div className="flex flex-col justify-center items-center gap-y-2">
@@ -13,21 +15,9 @@ const Products = () => {
             </h2>
             </div>
             <div className="flex justify-center items-center">
-                <div>
-                <Image src={pink} alt="pink"></Image>
-                <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">Flex Push Button Bomber</h4>
-                <p className="font-semibold text-lg">$225</p>
-                </div>
-                <div>
-                <Image src={ps}  alt="ps" ></Image>
-                <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">Pink Sweat Shirt</h4>
-                <p className="font-semibold text-lg">$105</p>
-                </div>
-                <div>
-                <Image src={gorchii}  alt="gorchii" ></Image>
-                <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">Blue Gorchii</h4>
-                <p className="font-semibold text-lg">$190</p>
-                </div>
+                <ProductCard id={p1.id} title={p1.name} category={p1.category} price={p1.price} image={p1.image}></ProductCard>
+                <ProductCard id={p2.id} title={p2.name} category={p2.category} price={p2.price} image={p2.image}></ProductCard>
+                <ProductCard id={p3.id} title={p3.name} category={p3.category} price={p3.price} image={p3.image}></ProductCard>
             </div>
         </div>
 )
