@@ -9,7 +9,7 @@ const filterProducts = (id:number) => {
 export default function Page({ params }: { params: { id: number} }) {
     const filteredProducts = filterProducts(params.id);
     return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-4 px-20 mx-auto">
       <h1 className="font-extrabold">{params.id}</h1>
       {
         filteredProducts.map((product,index) => (
