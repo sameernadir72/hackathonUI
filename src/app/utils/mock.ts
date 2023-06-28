@@ -72,5 +72,61 @@ export const products:Product[] = [
         price:195,
         category:"men",
         image: mj
-    }
+    },
+    {
+        id:10,
+        name:"Star Wars Hoodie",
+        price:140,
+        category:"kids",
+        image: kh
+    },
+    {
+        id:11,
+        name:"Star Wars Hoodie",
+        price:450,
+        category:"kids",
+        image: kh
+    },
+    {
+        id:12,
+        name:"Star Wars Hoodie",
+        price:550,
+        category:"kids",
+        image: kh
+    },
+    {
+        id:13,
+        name:"Star Wars Hoodie",
+        price:650,
+        category:"kids",
+        image: kh
+    },
+    {
+        id:14,
+        name:"Star Wars Hoodie",
+        price:640,
+        category:"kids",
+        image: kh
+    },
+    {
+        id:1,
+        name:"Star Wars Hoodie",
+        price:330,
+        category:"kids",
+        image: kh
+    },
+    {
+        id:1,
+        name:"Star Wars Hoodie",
+        price:220,
+        category:"kids",
+        image: kh
+    },
+    {
+        id:1,
+        name:"Star Wars Hoodie",
+        price:110,
+        category:"kids",
+        image: kh
+    },
 ];

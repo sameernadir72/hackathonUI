@@ -9,7 +9,9 @@ const filterProducts = (category:string) => {
 export default function Page({ params }: { params: { category: string } }) {
     const filteredProducts = filterProducts(params.category);
     return (
-      <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+    <div className="grid grid-cols-4 px-20 mx-auto">
+
       {
         filteredProducts.map((product,index) => (
             <ProductCard key={index} id={product.id} title={product.name} category={product.category}
