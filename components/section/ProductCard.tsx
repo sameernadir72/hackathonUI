@@ -8,7 +8,7 @@ const ProductCard = (props:{id:number, title:string, category:string, price:numb
         <Image src={props.image} alt="product image"></Image>
         <p className="leading-7 [&:not(:first-child)]:mt-3">{props.title}</p>
         <p className="leading-7 [&:not(:first-child)]:mt-3">{props.category}</p>
-        <p className="leading-7 [&:not(:first-child)]:mt-3">{props.price}</p>
+        <p className="font-semibold text-lg">{props.price}</p>
         </Link>
     </div>
   )
