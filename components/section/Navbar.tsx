@@ -16,9 +16,9 @@ const Navbar = () => {
         <NavigationMenu>
           <NavigationMenuList className=" justify-items-center">
             <NavigationMenuItem className="space-x-12 text-lg">
-              <Link href="/kids">Kids</Link>
-              <Link href="/boys">Boys</Link>
-              <Link href="/men">Men</Link>
+              <Link href="/allprod/kids">Kids</Link>
+              <Link href="/allprod/boys">Boys</Link>
+              <Link href="/allprod/men">Men</Link>
               <Link href="/allprod">All Products</Link>
             </NavigationMenuItem>
           </NavigationMenuList>

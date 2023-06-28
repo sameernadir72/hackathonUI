@@ -1,16 +1,15 @@
 import { products } from "@/app/utils/mock";
 import ProductCard from "../../../../components/section/ProductCard";
 
-const filterProducts = (id:number) => {
+const filterProducts = (category:string) => {
     return (products.filter((product) => (
-        product.id === id
+        product.category === category
     )))
 }
-export default function Page({ params }: { params: { id: number} }) {
-    const filteredProducts = filterProducts(params.id);
+export default function Page({ params }: { params: { category: string } }) {
+    const filteredProducts = filterProducts(params.category);
     return (
     <div className="grid grid-cols-4">
-      <h1 className="font-extrabold">{params.id}</h1>
       {
         filteredProducts.map((product,index) => (
             <ProductCard key={index} id={product.id} title={product.name} category={product.category}
