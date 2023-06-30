@@ -1,10 +1,31 @@
+
 "use client";
+
 import Image from "next/image";
 import  { useState } from 'react';
 import { Button } from "../ui/button";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, X } from "lucide-react";
 import { Product } from "@/app/utils/types";
 import pro from "../../public/project.png"
+import { useContext, useState } from "react";
+import {contextProduct, contextVal } from "./CartContext";
+
+export const ProductView = (product:Product) => {
+  const {cartItems,setCartItems} = useContext(contextVal);
+  const {cartProducts,setCartProducts} = useContext(contextProduct);
+
+  const increaseCart = () => {
+    setCartItems(cartItems+1);
+    console.log(cartItems);
+  }
+
+  const addProduct = (product:Product) => {
+    setCartProducts([...cartProducts,product]);
+    console.log(cartProducts);
+  }
+
+
+
 export const ProductView = (product:Product) => {
   const [count ,setCount] = useState(0);
   const hanldeDecrement = () =>{
@@ -12,6 +33,7 @@ export const ProductView = (product:Product) => {
       setCount(count - 1);   
     }
   }
+
   return (
     <div>
     <div className="flex justify-center my-10 gap-x-3">
@@ -27,6 +49,13 @@ export const ProductView = (product:Product) => {
         <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">L</li>
         <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">XL</li>
       </ul>
+
+      <h3>Quantity</h3>
+      <Button className="bg-black py-5" onClick={()=>{
+        increaseCart();
+        addProduct(product);
+        }}>
+
       <div className="flex gap-3 py-4">
 
       <h3 className="my-1">Quantity</h3>
@@ -39,6 +68,7 @@ export const ProductView = (product:Product) => {
       <div className="flex gap-4">
 
       <Button className="bg-black py-5">
+
         <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
       </Button>
       <div className="mt-3">
@@ -76,3 +106,4 @@ export const ProductView = (product:Product) => {
       </div>
   )
 }
+
