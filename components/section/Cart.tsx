@@ -2,9 +2,16 @@ import { Product } from "@/app/utils/types"
 import { DeleteIcon, LucideDelete } from "lucide-react"
 import Image from "next/image"
 import { Button } from "../ui/button"
-import { useState } from "react"
-
+import { useContext, useState } from "react"
+import { contextProduct, contextVal } from "./CartContext";
 export default function CartView (product:Product){
+    const { cartItems, setCartItems } = useContext(contextVal);
+    const {cartProducts, setCartProducts} = useContext(contextProduct)
+    const handleDeleteCart = () =>{
+        setCartItems(cartItems - 1);
+        setCartProducts(cartProducts.filter((p:any) => p.id !== product.id));
+        console.log("product",product.id)
+    }
     return(
         <div className="">
             <div className="flex justify-center">
@@ -12,7 +19,7 @@ export default function CartView (product:Product){
             <Image src={product.image} alt="product image"></Image>
             
             <div>
-                <span className="flex">{product.name}<LucideDelete/></span>
+                <span className="flex" onClick={() => handleDeleteCart()}>{product.name}<LucideDelete /></span>
                 <p>{product.name}</p>
                 <p>Delivery Estimation</p>
                 <p>5 Working Days</p>
