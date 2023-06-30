@@ -5,7 +5,6 @@ import Promotions from "../../components/section/Promotions";
 import Desc from "../../components/section/desc";
 import Products from "../../components/section/Products";
 
-
 export default function Home() {
   return (
     <>

@@ -1,9 +1,25 @@
+"use client"
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, X } from "lucide-react";
 import { Product } from "@/app/utils/types";
+import { useContext, useState } from "react";
+import {contextProduct, contextVal } from "./CartContext";
 
 export const ProductView = (product:Product) => {
+  const {cartItems,setCartItems} = useContext(contextVal);
+  const {cartProducts,setCartProducts} = useContext(contextProduct);
+
+  const increaseCart = () => {
+    setCartItems(cartItems+1);
+    console.log(cartItems);
+  }
+
+  const addProduct = (product:Product) => {
+    setCartProducts([...cartProducts,product]);
+    console.log(cartProducts);
+  }
+
   return (
     <div>
     <div className="flex justify-center ">
@@ -20,7 +36,10 @@ export const ProductView = (product:Product) => {
         <li>XL</li>
       </ul>
       <h3>Quantity</h3>
-      <Button className="bg-black py-5">
+      <Button className="bg-black py-5" onClick={()=>{
+        increaseCart();
+        addProduct(product);
+        }}>
         <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
       </Button>
       </div>
@@ -48,3 +67,4 @@ export const ProductView = (product:Product) => {
       </div>
   )
 }
+
