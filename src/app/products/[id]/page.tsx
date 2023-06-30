@@ -5,8 +5,9 @@ import { Product } from "@/app/utils/types";
 export default function Page({ params }: { params: { id: number} }) {
     const product:Product = products[params.id-1];
     return (
-        // <contextVal>
-        <ProductView {...product}/>
-        // {/* </contextVal> */}
+
+      <div>
+        <ProductView {...product} />
+      </div>
   )
 }
