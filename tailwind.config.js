@@ -11,10 +11,14 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
       },
+
     },
     extend: {
+      
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

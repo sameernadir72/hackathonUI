@@ -30,20 +30,31 @@ const Promotions = () => {
             </div>
 
             <div className="flex gap-x-5">
-                <div className="bg-orange-100">
+                <div className="bg-orange-100 ">
+                <div className="flex flex-col m-3">
+                    <div>
                 <p>Flex Sweatshirt</p> 
-                <div className="flex">
-                <p className="line-through">$225.00</p>
-                <p className="">$190.00</p>
+                    </div>
+                <div className="flex flex-row">
+                <p className="line-through me-2">$225.00</p>
+                {' '}
+                <h6 > <b>$190.00</b></h6>
+                </div>
                 </div>
                 <Image className="" src={event2} alt="event2"></Image>
                 </div>
                 <div className="bg-slate-300">
-                <p>Flex Push Button Bomber</p>
-                <div className="flex">
-                <p className="line-through">$225.00</p>
-                <p className="">$190.00</p>
+                <div className="flex flex-col m-3">
+                    <div>
+                <p>Flex Push Button Bomber</p> 
+                    </div>
+                <div className="flex flex-row">
+                <p className="line-through me-2">$225.00</p>
+                {' '}
+                <h6 > <b>$190.00</b></h6>
                 </div>
+                </div>
+               
                 <Image className="" src={event3} alt="event3"></Image>
                 </div>
             </div>

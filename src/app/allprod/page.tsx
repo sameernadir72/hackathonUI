@@ -3,7 +3,7 @@ import { products } from "../utils/mock";
 
 const AllProd = () => {
   return (
-    <div className="grid grid-cols-4 px-20   mx-auto">
+    <div className="grid grid-cols-4  ">
       {
         products.map(
           (product,index) => (
