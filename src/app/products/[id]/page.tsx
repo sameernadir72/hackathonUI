@@ -17,7 +17,7 @@ export default function Page({ params }: { params: { id: number} }) {
         <ProductView {...product} />
 
     <div >
-      <h1 className="font-extrabold">{params.id}</h1>
+      <h1 className="font-extrabold"></h1>
       {
         filteredProducts.map((product,index) => (
             <ProductCard key={index} id={product.id} title={product.name} category={product.category}

@@ -1,5 +1,11 @@
 import { Product } from "./types";
 import kh from "../../../public/kh.png"
+import kh1 from "../../../public/kids.1.jpg"
+import kh2 from "../../../public/kids.3.jpg"
+import kh3 from "../../../public/kids.4.jpg"
+import kh4 from "../../../public/kids.5.jpg"
+import kh6 from "../../../public/kids.8.jpg"
+import kh5 from "../../../public/kids.7.jpg"
 import rj from "../../../public/rj.png"
 import bj from "../../../public/bj.png"
 import ps from "../../../public/ps.png"
@@ -15,7 +21,7 @@ export const products:Product[] = [
         name:"Star Wars Hoodie",
         price:150,
         category:"kids",
-        image: kh
+        image: kh6
     },
     {
         id:2,
@@ -73,60 +79,43 @@ export const products:Product[] = [
         category:"men",
         image: mj
     },
+   
     {
         id:10,
-        name:"Star Wars Hoodie",
-        price:140,
-        category:"kids",
-        image: kh
-    },
-    {
-        id:11,
         name:"Star Wars Hoodie",
         price:450,
         category:"kids",
         image: kh
     },
     {
-        id:12,
+        id:11,
         name:"Star Wars Hoodie",
         price:550,
         category:"kids",
-        image: kh
+        image: kh1
+    },
+    
+    {
+        id:12,
+        name:"Star Wars Hoodie",
+        price:640,
+        category:"kids",
+        image: kh3
     },
     {
         id:13,
         name:"Star Wars Hoodie",
-        price:650,
+        price:330,
         category:"kids",
-        image: kh
+        image: kh4
     },
     {
         id:14,
         name:"Star Wars Hoodie",
-        price:640,
-        category:"kids",
-        image: kh
-    },
-    {
-        id:1,
-        name:"Star Wars Hoodie",
-        price:330,
-        category:"kids",
-        image: kh
-    },
-    {
-        id:1,
-        name:"Star Wars Hoodie",
         price:220,
         category:"kids",
-        image: kh
+        image: kh5
     },
-    {
-        id:1,
-        name:"Star Wars Hoodie",
-        price:110,
-        category:"kids",
-        image: kh
-    },
+   
+   
 ];
