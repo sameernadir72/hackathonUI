@@ -8,9 +8,9 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "./../ui/navigation-menu";
-import { contextVal } from "./CartContext";
-import { useContext } from "react";
-
+import { CartProduct, Product } from "@/app/utils/types"
+import { useContext, useState } from "react"
+import { contextProduct, contextVal } from "./CartContext";
 const Navbar = () => {
   const {cartItems} = useContext(contextVal);
   return (

@@ -40,7 +40,7 @@ export default function CartView (product:CartProduct){
             
             <div className="mr-44 ml-7">
                 <span className="flex">{product.name}<button onClick={() => handleDeleteCart()}><Trash2/></button></span>
-                <p>{product.name}</p>
+                <p>{product.subCategory}</p>
                 <p>Delivery Estimation</p>
                 <p>5 Working Days</p>
                 <div className="flex">
