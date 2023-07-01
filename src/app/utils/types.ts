@@ -5,6 +5,7 @@ export type Product = {
     name: string,
     price: number,
     category: string,
+    subCategory: string,
     image: StaticImageData
 }
 export type CartProduct = Product & {

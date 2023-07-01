@@ -10,7 +10,7 @@ export default function CartView (product:CartProduct){
     const {cartProducts, setCartProducts} = useContext(contextProduct)
 
     const handleDeleteCart = () =>{
-        setCartItems(cartItems - 1);
+        setCartItems(cartItems - product.quantity);
         setCartProducts(cartProducts.filter((p:any) => p.id !== product.id));
         console.log("product",product.id)
     }

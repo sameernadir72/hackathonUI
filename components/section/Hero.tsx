@@ -31,7 +31,9 @@ const Hero = () => {
       <Image src={Featured4} alt="Featured4"></Image>
       </div>
     </div>
-    <Image className="ml-40" src="/hero.png" alt="hero image" width={400} height={100}></Image>
+    <div className="bg-orange-50 ml-40 rounded-full w-11/12 flex">
+    <Image className="ml-12 " src="/hero.png" alt="hero image" width={500} height={100}></Image>
+    </div>
     </div>
   );
 };

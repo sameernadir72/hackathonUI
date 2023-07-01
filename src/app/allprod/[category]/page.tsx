@@ -1,5 +1,6 @@
 import { products } from "@/app/utils/mock";
 import ProductCard from "../../../../components/section/ProductCard";
+import { Product } from "@/app/utils/types";
 
 const filterProducts = (category:string) => {
     return (products.filter((product) => (
@@ -23,14 +24,15 @@ export default function Page({ params }: { params: { category: string } }) {
      
       <div className="p-4 md:w-1/3 sm:mb-0 mb-6 grid grid-cols-4">
       {
-          filteredProducts.map((product, index) => (
+          filteredProducts.map((product:Product, index:number) => (
             <ProductCard
               key={index}
-              id={product.id}
-              title={product.name}
-              category={product.category}
-              price={product.price}
-              image={product.image}
+              prop={product}
+              // id={product.id}
+              // title={product.name}
+              // category={product.category}
+              // price={product.price}
+              // image={product.image}
             ></ProductCard>
           ))
         }

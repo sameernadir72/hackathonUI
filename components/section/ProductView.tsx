@@ -41,7 +41,7 @@ export const ProductView = (product: Product) => {
         <Image src={product.image} alt="product image"></Image>
         <div className="flex flex-col ">
           <h1 className="my-1">{product.name}</h1>
-          <h3 className="my-1">{product.category}</h3>
+          <h3 className="my-1">{product.subCategory}</h3>
           <p className="my-1">SELECT SIZE</p>
           <ul className="flex space-x-5 my-1">
             <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
