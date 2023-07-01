@@ -1,22 +1,22 @@
-import { CartProduct, Product } from "@/app/utils/types"
+import { Product } from "@/app/utils/types"
 import { Trash2 } from "lucide-react"
 import Image from "next/image"
 import { Button } from "../ui/button"
 import { useContext, useState } from "react"
 import { contextProduct, contextVal } from "./CartContext";
 
-export default function CartView (product:CartProduct){
+export default function CartView ({product}:{product:Product}){
     const { cartItems, setCartItems } = useContext(contextVal);
-    const {cartProducts, setCartProducts} = useContext(contextProduct)
+    const {cartProducts, setCartProducts} = useContext(contextProduct);
 
     const handleDeleteCart = () =>{
         setCartItems(cartItems - product.quantity);
         setCartProducts(cartProducts.filter((p:any) => p.id !== product.id));
-        console.log("product",product.id)
+        console.log("product",product.id);
     }
 
     const handleIncreaseQuantity = (increase:boolean) => {
-        (cartProducts.map((pr:CartProduct)=>{
+        (cartProducts.map((pr:Product)=>{
             if(pr.id == product.id){
                 if(increase){
                     pr.quantity+=1;
@@ -35,9 +35,7 @@ export default function CartView (product:CartProduct){
     return(
         <div className="">
             <div className="flex justify-center">
-            
             <Image className="rounded-lg" src={product.image} alt="product image" width={160} height={30}></Image>
-            
             <div className="mr-44 ml-7">
                 <span className="flex">{product.name}<button onClick={() => handleDeleteCart()}><Trash2/></button></span>
                 <p>{product.subCategory}</p>
@@ -67,7 +65,6 @@ export default function CartView (product:CartProduct){
             </div>
             </div>
             </div>
-
             <div className="bg-slate-100 space-y-5 ml-10">
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">Order Summary</h3>
             <span className="flex">Quantity<p className="pl-7">{product.quantity} Product</p></span>

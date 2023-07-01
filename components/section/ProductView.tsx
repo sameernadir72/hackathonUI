@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { ShoppingCart, X } from "lucide-react";
-import { CartProduct, Product } from "@/app/utils/types";
+import { Product } from "@/app/utils/types";
 import pro from "../../public/project.png";
 import { useContext, useState } from "react";
 import { contextProduct, contextVal } from "./CartContext";
@@ -20,19 +20,13 @@ export const ProductView = (product: Product) => {
       quantity: quantity,
       subTotal: product.price*quantity,
       image: product.image,
-      price: product.price
+      price: product.price,
+      subCategory: product.subCategory
     }
     setCartItems(cartItems + quantity);
     setCartProducts([...cartProducts, p]);
     console.log("cartItems", cartProducts);
   };
-
-  // const removeFromCart = () => {
-  //   if(cartItems > 0){
-  //     setCartItems(cartItems - 1);
-  //     setCartProducts(cartProducts.splice(cartProducts, 0));
-  //   }
-  // };
   
   return (
     

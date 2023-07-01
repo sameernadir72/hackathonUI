@@ -6,9 +6,7 @@ export type Product = {
     price: number,
     category: string,
     subCategory: string,
-    image: StaticImageData
-}
-export type CartProduct = Product & {
+    image: StaticImageData,
     quantity:number,
-    subTotal:number,
+    subTotal:number
 }
