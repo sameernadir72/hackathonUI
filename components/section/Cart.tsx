@@ -1,18 +1,37 @@
-import { Product } from "@/app/utils/types"
+import { CartProduct, Product } from "@/app/utils/types"
 import { Trash2 } from "lucide-react"
 import Image from "next/image"
 import { Button } from "../ui/button"
 import { useContext, useState } from "react"
 import { contextProduct, contextVal } from "./CartContext";
 
-export default function CartView (product:Product){
+export default function CartView (product:CartProduct){
     const { cartItems, setCartItems } = useContext(contextVal);
     const {cartProducts, setCartProducts} = useContext(contextProduct)
+
     const handleDeleteCart = () =>{
         setCartItems(cartItems - 1);
         setCartProducts(cartProducts.filter((p:any) => p.id !== product.id));
         console.log("product",product.id)
     }
+
+    const handleIncreaseQuantity = (increase:boolean) => {
+        (cartProducts.map((pr:CartProduct)=>{
+            if(pr.id == product.id){
+                if(increase){
+                    pr.quantity+=1;
+                    pr.subTotal += pr.price;
+                }
+                else{
+                    if(product.quantity>1){
+                    pr.quantity-=1;
+                    pr.subTotal-=pr.price;
+                    }
+                }
+            }
+        }));
+    }
+
     return(
         <div className="">
             <div className="flex justify-center">
@@ -25,15 +44,21 @@ export default function CartView (product:Product){
                 <p>Delivery Estimation</p>
                 <p>5 Working Days</p>
                 <div className="flex">
-                <p>${product.price}</p>
+                <p>${product.subTotal}</p>
                 <div className="flex gap-2 ml-28">
-              <Button onClick={() => setCartItems(Math.max(cartItems-1,1))} className="rounded-full ">
+              <Button onClick={() => {
+                if(product.quantity>1){
+                    setCartItems(cartItems-1);
+                }
+                handleIncreaseQuantity(false);
+                }} className="rounded-full ">
                 -
               </Button>
-              <span className="w-9 justify-center items-center flex">{cartItems}</span>
+              <span className="w-9 justify-center items-center flex">{product.quantity}</span>
               <Button
                 onClick={() => {
                   setCartItems(cartItems+1);
+                  handleIncreaseQuantity(true);
                 }}
                 className="rounded-full"
               >
@@ -45,8 +70,8 @@ export default function CartView (product:Product){
 
             <div className="bg-slate-100 space-y-5 ml-10">
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">Order Summary</h3>
-            <span className="flex">Quantity<p className="pl-7">{1} Product</p></span>
-            <span>Sub Total<p>${product.price}</p></span>
+            <span className="flex">Quantity<p className="pl-7">{product.quantity} Product</p></span>
+            <span className="flex">Sub Total<p className="pl-7">${product.subTotal}</p></span>
             <Button>Process to Checkout</Button>
             </div>
 

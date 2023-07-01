@@ -7,3 +7,7 @@ export type Product = {
     category: string,
     image: StaticImageData
 }
+export type CartProduct = Product & {
+    quantity:number,
+    subTotal:number,
+}

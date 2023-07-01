@@ -1,7 +1,7 @@
 "use client";
 import CartView from "../../../components/section/Cart";
 import { products } from "../utils/mock";
-import { Product } from "../utils/types";
+import { CartProduct, Product } from "../utils/types";
 import { contextProduct } from "../../../components/section/CartContext";
 import { useContext } from "react";
 
@@ -19,7 +19,7 @@ export default function Page() {
          <h1 className="font-bold">Your Shopping Bag Is Empty</h1>
        </div>
         ) : (
-          cartProducts.map((product: Product, index: number) => (
+          cartProducts.map((product: CartProduct, index: number) => (
             <CartView key={index} {...product} />
           ))
         )}

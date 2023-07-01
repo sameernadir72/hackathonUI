@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { ShoppingCart, X } from "lucide-react";
-import { Product } from "@/app/utils/types";
+import { CartProduct, Product } from "@/app/utils/types";
 import pro from "../../public/project.png";
 import { useContext, useState } from "react";
 import { contextProduct, contextVal } from "./CartContext";
@@ -14,9 +14,17 @@ export const ProductView = (product: Product) => {
   const [quantity,setQuantity] = useState(1);
 
   const addToCart = () => {
+    const p = {
+      id: product.id,
+      name: product.name,
+      quantity: quantity,
+      subTotal: product.price*quantity,
+      image: product.image,
+      price: product.price
+    }
     setCartItems(cartItems + quantity);
-    setCartProducts([...cartProducts, product]);
-    console.log("cartItems", cartItems);
+    setCartProducts([...cartProducts, p]);
+    console.log("cartItems", cartProducts);
   };
 
   // const removeFromCart = () => {
@@ -56,6 +64,7 @@ export const ProductView = (product: Product) => {
           <div className="flex gap-3 py-4">
             <h3 className="my-1">Quantity</h3>
             <div className="flex gap-2">
+              {/* <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full"> */}
               <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full">
                 -
               </Button>
