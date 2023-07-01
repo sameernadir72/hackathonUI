@@ -11,18 +11,25 @@ export default function CartView(product: CartProduct) {
   const [quantity, setQuantity] = useState(cartItems);
 
   const handleDeleteCart = () => {
-    const p = {
-      id: product.id,
-      name: product.name,
-      quantity: quantity,
-      subTotal: product.price * quantity,
-      image: product.image,
-      price: product.price,
-    };
-    setCartItems(cartItems - quantity);
+    // const p = {
+    //   id: product.id,
+    //   name: product.name,
+    //   quantity: quantity,
+    //   subTotal: product.price * quantity,
+    //   image: product.image,
+    //   price: product.price,
+    // };
+    // setCartItems(cartItems - quantity);
 
-    setCartProducts(cartProducts.filter((p: any) => p.id !== product.id));
-    console.log("product");
+    setCartProducts((prevProducts: CartProduct[]) => {
+      const index = prevProducts.findIndex((p: CartProduct) => p.id === product.id);
+      if (index !== -1) {
+        const updatedProducts = [...prevProducts];
+        updatedProducts.splice(index, 1);
+        return updatedProducts;
+      }
+      return prevProducts;
+    });
   };
 
   const handleIncreaseQuantity = (increase: boolean) => {
@@ -57,8 +64,8 @@ export default function CartView(product: CartProduct) {
             {product.name}
             <button
               onClick={() => {
-                handleDeleteCart(); 
-               product.quantity--;
+                handleDeleteCart() 
+                
               }}
             >
               <Trash2 />
