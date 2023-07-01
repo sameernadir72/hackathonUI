@@ -5,6 +5,7 @@ import Featured1 from  "../../public/Featured1.webp"
 import Featured2 from  "../../public/Featured2.webp"
 import Featured3 from  "../../public/Featured3.webp"
 import Featured4 from  "../../public/Featured4.webp"
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -18,9 +19,11 @@ const Hero = () => {
         Anyone can beat you but no one can beat your outfit as long as you wear
         Dine outfits.
       </p>
-      <Button className="bg-black py-7">
+      <Link href="/allprod">
+      <Button  className="bg-black py-7" >
         <ShoppingCart className="mr-2 h-5 w-5" /> Start Shopping
       </Button>
+      </Link>
       <div className="flex space-x-5">
       <Image src={Featured1} alt="Featured1"></Image>
       <Image src={Featured2} alt="Featured2"></Image>

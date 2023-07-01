@@ -11,23 +11,23 @@ import { contextProduct, contextVal } from "./CartContext";
 export const ProductView = (product: Product) => {
   const { cartItems, setCartItems } = useContext(contextVal);
   const { cartProducts, setCartProducts } = useContext(contextProduct);
-  const [cartProductsItems, setCartProductsItems]  = useState(cartItems)
+  const [quantity,setQuantity] = useState(1);
 
-  const increaseCart = () => {
-    setCartItems(cartItems + 1);
+  const addToCart = () => {
+    setCartItems(cartItems + quantity);
     setCartProducts([...cartProducts, product]);
     console.log("cartItems", cartItems);
   };
-  const decreaseCart = () => {
-    if(cartItems > 0){
 
-      setCartItems(cartItems - 1);
-      setCartProducts(cartProducts.splice(cartProducts, 0));
-      
-    }
-  };
+  // const removeFromCart = () => {
+  //   if(cartItems > 0){
+  //     setCartItems(cartItems - 1);
+  //     setCartProducts(cartProducts.splice(cartProducts, 0));
+  //   }
+  // };
   
   return (
+    
     <div>
       <div className="flex justify-center my-10 gap-x-3">
         <Image src={product.image} alt="product image"></Image>
@@ -56,19 +56,13 @@ export const ProductView = (product: Product) => {
           <div className="flex gap-3 py-4">
             <h3 className="my-1">Quantity</h3>
             <div className="flex gap-2">
-              <Button onClick={() => decreaseCart()} className="rounded-full">
+              <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full">
                 -
               </Button>
-              <input
-                type="text"
-                min="1"
-                max="20"
-                value={cartItems}
-                className="w-9 "
-              />
+              <span className="w-9 justify-center items-center flex">{quantity}</span>
               <Button
                 onClick={() => {
-                  increaseCart();
+                  setQuantity(quantity+1);
                 }}
                 className="rounded-full"
               >
@@ -77,7 +71,7 @@ export const ProductView = (product: Product) => {
             </div>
           </div>
           <div className="flex gap-4">
-            <Button className="bg-black py-5">
+            <Button className="bg-black py-5" onClick={addToCart}>
               <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
             </Button>
             <div className="mt-3">
