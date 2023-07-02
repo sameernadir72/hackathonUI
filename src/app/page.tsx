@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Promotions />
+       <Promotions />
       <Products />
       <Desc />
       <Newsletter />

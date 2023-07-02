@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 const Newsletter = () => {
     return (
-        <div className="flex flex-col justify-center items-center m-40">
+        <div className="flex flex-col justify-center items-center m-0 sm:m-40">
             <h2 className="scroll-m-20  pb-2 text-4xl font-bold tracking-wide transition-colors first:mt-0">
             Subscribe Our Newsletter
     </h2>

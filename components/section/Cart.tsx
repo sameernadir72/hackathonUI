@@ -9,10 +9,14 @@ export default function CartView ({product}:{product:Product}){
     const { cartItems, setCartItems } = useContext(contextVal);
     const {cartProducts, setCartProducts} = useContext(contextProduct);
 
+
     const handleDeleteCart = () =>{
         const updatedCart:Product[] = cartProducts.filter((p:Product)=>(p.id !== product.id));
         setCartProducts(updatedCart);
     }
+
+   
+        
 
     const handleIncreaseQuantity = (increase:boolean) => {
         (cartProducts.map((pr:Product)=>{
