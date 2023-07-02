@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "../ui/button";
-import { ShoppingCart, X } from "lucide-react";
+import { Key, ShoppingCart, X } from "lucide-react";
 import { Product } from "@/app/utils/types";
 import pro from "../../public/project.png";
 import { useContext, useState } from "react";
@@ -42,32 +43,23 @@ export const ProductView = (product: Product) => {
     console.log("cartItems", cartProducts);
   }
 }
-  
-  return (
-    
-    <div>
-      <div className="flex justify-center my-10 gap-x-3">
-        <Image src={product.image} alt="product image"></Image>
-        <div className="flex flex-col ">
-          <h1 className="my-1">{product.name}</h1>
-          <h3 className="my-1">{product.subCategory}</h3>
-          <p className="my-1">SELECT SIZE</p>
+
+const size = ['XS','S','M','L','XL'];
+  return ( 
+    <div className="bg-zinc-50">
+      <div className="flex  my-10 gap-x-3">
+        <Link href=" "><Image src={product.image} alt="pr-img-mini" width={100} height={100}></Image></Link>
+        <Image className="ml-6" src={product.image} alt="product image" width={500}></Image>
+        <div className="flex flex-col mt-16 ml-3">
+          <h1 className="my-1 font-poppins text-3xl font-medium">{product.name}</h1>
+          <h3 className="mb-4 font-sans text-xl font-semibold text-gray-500">{product.subCategory}</h3>
+          <p className="my-1 font-bold">SELECT SIZE</p>
           <ul className="flex space-x-5 my-1">
-            <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
-              XS
-            </li>
-            <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
-              S
-            </li>
-            <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
-              M
-            </li>
-            <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
-              L
-            </li>
-            <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
-              XL
-            </li>
+            {size.map((s,index)=>(
+              <li key={index} className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
+                {s}
+              </li>
+            ))}
           </ul>
         
           <div className="flex gap-3 py-4">
@@ -101,7 +93,7 @@ export const ProductView = (product: Product) => {
         </div>
       </div>
 
-      <div className="mx-auto px-40  ">
+      <div className="mx-auto px-40 bg-white">
         <Image
           src={pro}
           alt="product"
@@ -110,7 +102,7 @@ export const ProductView = (product: Product) => {
 
         <div className="flex  space-x-6 gap-x-10 mb-5">
           <div className="w-30">
-            <p className="scroll-m-20 text-lg font-bold tracking-tight ">
+            <p className=" text-lg font-bold tracking-tight ">
               PRODUCT DETAILS
             </p>
           </div>

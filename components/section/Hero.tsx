@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row gap-y-10 px-28">
+    <div className="flex flex-col lg:flex-row gap-y-10">
     <div className="m-4 mt-16 space-y-9">
     <Button className="cursor-text text-base p-4 px-7 bg-blue-100 text-blue-700 font-bold" variant="secondary">Sale 70%</Button>
       <h1 className="scroll-m-20 text-9xl font-extrabold tracking-widest lg:text-5xl max-w-md ">

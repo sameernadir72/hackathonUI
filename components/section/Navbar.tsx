@@ -8,7 +8,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "./../ui/navigation-menu";
-import { CartProduct, Product } from "@/app/utils/types"
+import { Product } from "@/app/utils/types"
 import { useContext, useState } from "react"
 import { contextProduct, contextVal } from "./CartContext";
 const Navbar = () => {

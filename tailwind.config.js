@@ -15,10 +15,12 @@ module.exports = {
         'md': '768px',
         'lg': '1024px',
       },
-
+      
     },
     extend: {
-      
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

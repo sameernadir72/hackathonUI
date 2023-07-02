@@ -21,16 +21,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Condensed&display=swap" rel="stylesheet">
+      </link>
+      </head>
       <body className={inter.className}>
 
         <CartContext>
     
 
         <Navbar /> 
-      {/* <main className="px-28"> */}
-
+      <main className="px-28">
         {children}
         <Footer/>
+        </main>
         </CartContext>
       </body>
     </html>

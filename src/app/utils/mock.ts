@@ -12,7 +12,6 @@ import bw from "../../../public/bw.png"
 import bbb from "../../../public/bbb.png"
 import pg from "../../../public/pg.png"
 
-
 export const products: Product[] = [
     {
         id: 1,
