@@ -8,11 +8,11 @@ const AllProd = () => {
         products.map(
           (product,index) => (
 
-            <ProductCard key={index} prop={product} ></ProductCard>=======
+            <ProductCard key={index} prop={product} ></ProductCard>
            
          
           )
-      }
+      )}
       </div>
   )
 }
