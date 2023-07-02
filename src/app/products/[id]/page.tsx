@@ -19,9 +19,10 @@ export default function Page({ params }: { params: { id: number} }) {
     <div >
       <h1 className="font-extrabold"></h1>
       {
-        filteredProducts.map((product,index) => (
-            <ProductCard key={index} id={product.id} title={product.name} category={product.category}
-            price={product.price} image={product.image} ></ProductCard>
+        filteredProducts.map((product:Product,index:number) => (
+            <ProductCard key={index} prop={product} ></ProductCard>
+
+       
         ))
       }
 

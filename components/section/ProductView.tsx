@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { ShoppingCart, X } from "lucide-react";
-import { CartProduct, Product } from "@/app/utils/types";
+import { Product } from "@/app/utils/types";
 import pro from "../../public/project.png";
 import { useContext, useState } from "react";
 import { contextProduct, contextVal } from "./CartContext";
@@ -20,19 +20,13 @@ export const ProductView = (product: Product) => {
       quantity: quantity,
       subTotal: product.price*quantity,
       image: product.image,
-      price: product.price
+      price: product.price,
+      subCategory: product.subCategory
     }
     setCartItems(cartItems + quantity);
     setCartProducts([...cartProducts, p]);
     console.log("cartItems", cartProducts);
   };
-
-  // const removeFromCart = () => {
-  //   if(cartItems > 0){
-  //     setCartItems(cartItems - 1);
-  //     setCartProducts(cartProducts.splice(cartProducts, 0));
-  //   }
-  // };
   
   return (
     
@@ -41,7 +35,7 @@ export const ProductView = (product: Product) => {
         <Image src={product.image} alt="product image"></Image>
         <div className="flex flex-col ">
           <h1 className="my-1">{product.name}</h1>
-          <h3 className="my-1">{product.category}</h3>
+          <h3 className="my-1">{product.subCategory}</h3>
           <p className="my-1">SELECT SIZE</p>
           <ul className="flex space-x-5 my-1">
             <li className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
@@ -64,6 +58,7 @@ export const ProductView = (product: Product) => {
           <div className="flex gap-3 py-4">
             <h3 className="my-1">Quantity</h3>
             <div className="flex gap-2">
+              {/* <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full"> */}
               <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full">
                 -
               </Button>

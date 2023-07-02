@@ -7,12 +7,14 @@ const AllProd = () => {
       {
         products.map(
           (product,index) => (
-            <ProductCard key={index} id={product.id} title={product.name} category={product.category} price={product.price} image={product.image} ></ProductCard>
-          )
+
+            <ProductCard key={index} prop={product} ></ProductCard>=======
+           
+         
           )
       }
       </div>
   )
 }
 
-export default AllProd;
+export default AllProd

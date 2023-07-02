@@ -8,15 +8,11 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "./../ui/navigation-menu";
-
 import { CartProduct, Product } from "@/app/utils/types"
 import { useContext, useState } from "react"
 import { contextProduct, contextVal } from "./CartContext";
 const Navbar = () => {
-  
   const {cartItems} = useContext(contextVal);
-      const {cartProducts, setCartProducts} = useContext(contextProduct)
-      console.log(cartProducts);
   return (
     <nav className="flex justify-between items-center h-20 m-4 px-28">
       <Link href=""><Image src={"/Logo.webp"} alt="website logo" width={150} height={150} /></Link>
