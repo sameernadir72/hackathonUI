@@ -46,7 +46,7 @@ export const ProductView = (product: Product) => {
 
 const size = ['XS','S','M','L','XL'];
   return ( 
-    <div className="bg-zinc-50">
+    <div className="bg-zinc-50 mb-44">
       <div className="flex  my-10 gap-x-3">
         <Link href=" "><Image src={product.image} alt="pr-img-mini" width={100} height={100}></Image></Link>
         <Image className="ml-6" src={product.image} alt="product image" width={500}></Image>
@@ -63,10 +63,10 @@ const size = ['XS','S','M','L','XL'];
           </ul>
         
           <div className="flex gap-3 py-4">
-            <h3 className="my-1">Quantity</h3>
+            <h3 className="my-2 font-bold text-lg">Quantity:</h3>
             <div className="flex gap-2">
               {/* <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full"> */}
-              <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full">
+              <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full bg-slate-200 text-black text-xl">
                 -
               </Button>
               <span className="w-9 justify-center items-center flex">{quantity}</span>
@@ -74,35 +74,35 @@ const size = ['XS','S','M','L','XL'];
                 onClick={() => {
                   setQuantity(quantity+1);
                 }}
-                className="rounded-full"
+                className="rounded-full bg-slate-200 text-black text-xl"
               >
                 +
               </Button>
             </div>
           </div>
-          <div className="flex gap-4">
-            <Button className="bg-black py-5" onClick={addToCart}>
+          <div className="flex gap-4 mt-3">
+            <Button className="bg-black py-6" onClick={addToCart}>
               <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
             </Button>
-            <div className="mt-3">
+            <div className="flex justify-center items-center text-2xl font-semibold font-poppins">
               <h1>
-                <b>$ {product.price}</b>
+                <b>$ {product.price}.00</b>
               </h1>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="mx-auto px-40 bg-white">
+      <div className="mx-auto px-10 bg-white mt-36">
         <Image
           src={pro}
           alt="product"
-          className="border-b-2 border-gray-200 mb-10"
+          className="border-b-4 border-gray-200 mb-10"
+          width={900}
         ></Image>
 
         <div className="flex  space-x-6 gap-x-10 mb-5">
           <div className="w-30">
-            <p className=" text-lg font-bold tracking-tight ">
+            <p className=" text-lg font-bold tracking-tight text-gray-500">
               PRODUCT DETAILS
             </p>
           </div>
@@ -114,7 +114,7 @@ const size = ['XS','S','M','L','XL'];
         </div>
 
         <div className="flex  space-x-10 gap-x-11">
-          <p className="scroll-m-20 text-lg font-bold tracking-tight">
+          <p className="scroll-m-20 text-lg font-bold tracking-tight text-gray-500">
             PRODUCT CARE
           </p>
           <ul className="list-inside">

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
-        <footer className="flex m-4">
+        <footer className="flex mt-24 mb-56">
             <div className="max-w-xs flex flex-col justify-between">
                 <Image src="/Logo.webp" alt="logo" width={150} height={150}></Image>
                 <p className="leading-7">
