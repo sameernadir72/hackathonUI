@@ -15,9 +15,9 @@ const Products = () => {
             </h2>
             </div>
             <div className="flex justify-center items-center">
-                <ProductCard id={p1.id} title={p1.name} category={p1.category} price={p1.price} image={p1.image}></ProductCard>
-                <ProductCard id={p2.id} title={p2.name} category={p2.category} price={p2.price} image={p2.image}></ProductCard>
-                <ProductCard id={p3.id} title={p3.name} category={p3.category} price={p3.price} image={p3.image}></ProductCard>
+                <ProductCard prop={p1}></ProductCard>
+                <ProductCard prop={p2}></ProductCard>
+                <ProductCard prop={p3}></ProductCard>
             </div>
         </div>
 )
