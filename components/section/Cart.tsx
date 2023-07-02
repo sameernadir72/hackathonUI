@@ -9,11 +9,24 @@ export default function CartView ({product}:{product:Product}){
     const { cartItems, setCartItems } = useContext(contextVal);
     const {cartProducts, setCartProducts} = useContext(contextProduct);
 
-    const handleDeleteCart = () =>{
-        setCartItems(cartItems - product.quantity);
-        setCartProducts(cartProducts.filter((p:any) => p.id !== product.id));
-        console.log("product",product.id);
-    }
+   
+        const handleDeleteCart = () => {
+            setCartProducts((prevProducts: CartProduct[]) => {
+                const index = prevProducts.findIndex((p: CartProduct) => p.id === product.id);
+                if (index !== -1) {
+                  const updatedProducts = [...prevProducts];
+                  updatedProducts.splice(index, 1);
+              
+                  if (updatedProducts.length === 0) {
+                    setCartItems(0);
+                  }
+              
+                  return updatedProducts;
+                }
+                return prevProducts;
+              });
+          };
+    
 
     const handleIncreaseQuantity = (increase:boolean) => {
         (cartProducts.map((pr:Product)=>{

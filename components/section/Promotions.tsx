@@ -4,19 +4,20 @@ import event3 from "../../public/event3.webp"
 import Image from "next/image";
 const Promotions = () => {
     return(
-        <div className="px-28  pt-20 space-y-7">
+        <div className="min-h-4xl mx-auto  pt-20 space-y-7">
+            
         <div className="flex flex-col justify-center items-center">
              <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-bold tracking-wider text-blue-600">PROMOTIONS</p>
-             <h2 className="scroll-m-20 pb-2 text-4xl font-bold tracking-wide transition-colors first:mt-0">
+             <h2 className="scroll-m-20 pb-2 text-4xl font-bold tracking-wide transition-colors first:mt-0 text-center p-1 sm:text-left">
              Our Promotions Events
             </h2>
         </div>
-        <div className="flex justify-evenly">
-            <div className="space-y-5">
-                <div className="bg-gray-300 w-96 h-40 items-start p-7 flex flex-col">
-                <h2 className="scroll-m-20 text-black text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+        <div className="flex flex-col  justify-center sm:flex-row space-x-2">
+            <div className="space-y-5 my-4 md:my-0 ">
+                <div className="bg-gray-300 w-96 h-40  p-7 flex flex-col">
+                <h2 className="scroll-m-20 text-black text-3xl font-semibold tracking-tight transition-colors first:mt-0 text-center sm:text-left">
                 GET UPTO</h2>
-                <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
+                <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl text-center sm:text-left">
                 60%</h1>
                 <p className="leading-7 text-black">For the summer season </p>
                 </div>
@@ -29,8 +30,8 @@ const Promotions = () => {
                 </div>
             </div>
 
-            <div className="flex gap-x-5">
-                <div className="bg-orange-100 ">
+            <div className="flex flex-col  sm:flex-row gap-x-5 gap-y-2">
+                <div className="bg-orange-100 w-1/2">
                 <div className="flex flex-col m-3">
                     <div>
                 <p>Flex Sweatshirt</p> 
@@ -43,7 +44,7 @@ const Promotions = () => {
                 </div>
                 <Image className="" src={event2} alt="event2"></Image>
                 </div>
-                <div className="bg-slate-300">
+                <div className="bg-slate-300 w-1/2">
                 <div className="flex flex-col m-3">
                     <div>
                 <p>Flex Push Button Bomber</p> 
@@ -60,6 +61,7 @@ const Promotions = () => {
             </div>
 
             </div>
+
             </div>
     )
 }
