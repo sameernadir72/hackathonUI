@@ -1,9 +1,6 @@
 "use client";
 import CartView from "../../../components/section/Cart";
-import { products } from "../utils/mock";
-
 import { Product } from "../utils/types";
-import { CartProduct, Product } from "../utils/types";
 import { contextProduct } from "../../../components/section/CartContext";
 import { useContext } from "react";
 
