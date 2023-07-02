@@ -11,15 +11,7 @@ export default function CartView(product: CartProduct) {
   const [quantity, setQuantity] = useState(cartItems);
 
   const handleDeleteCart = () => {
-    // const p = {
-    //   id: product.id,
-    //   name: product.name,
-    //   quantity: quantity,
-    //   subTotal: product.price * quantity,
-    //   image: product.image,
-    //   price: product.price,
-    // };
-    // setCartItems(cartItems - quantity);
+   
 
     setCartProducts((prevProducts: CartProduct[]) => {
       const index = prevProducts.findIndex((p: CartProduct) => p.id === product.id);
