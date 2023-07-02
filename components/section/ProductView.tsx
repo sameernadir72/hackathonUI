@@ -13,7 +13,21 @@ export const ProductView = (product: Product) => {
   const { cartProducts, setCartProducts } = useContext(contextProduct);
   const [quantity,setQuantity] = useState(1);
 
+  const prodExistsInCart = () => {
+      cartProducts.map((p:Product)=>{
+        if(p.id==product.id){
+          setCartItems(cartItems + quantity);
+          p.quantity+=quantity;
+          p.subTotal += product.price*quantity;
+        }
+      })
+    }
+
   const addToCart = () => {
+    if(cartProducts.some((p:Product)=>(p.id==product.id))){
+      prodExistsInCart();
+    }
+    else{
     const p = {
       id: product.id,
       name: product.name,
@@ -26,7 +40,8 @@ export const ProductView = (product: Product) => {
     setCartItems(cartItems + quantity);
     setCartProducts([...cartProducts, p]);
     console.log("cartItems", cartProducts);
-  };
+  }
+}
   
   return (
     

@@ -10,9 +10,8 @@ export default function CartView ({product}:{product:Product}){
     const {cartProducts, setCartProducts} = useContext(contextProduct);
 
     const handleDeleteCart = () =>{
-        setCartItems(cartItems - product.quantity);
-        setCartProducts(cartProducts.filter((p:any) => p.id !== product.id));
-        console.log("product",product.id);
+        const updatedCart:Product[] = cartProducts.filter((p:Product)=>(p.id !== product.id));
+        setCartProducts(updatedCart);
     }
 
     const handleIncreaseQuantity = (increase:boolean) => {
@@ -49,7 +48,7 @@ export default function CartView ({product}:{product:Product}){
                     setCartItems(cartItems-1);
                 }
                 handleIncreaseQuantity(false);
-                }} className="rounded-full ">
+                }} className="rounded-full">
                 -
               </Button>
               <span className="w-9 justify-center items-center flex">{product.quantity}</span>
