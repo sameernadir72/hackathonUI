@@ -4,12 +4,15 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
+
+      
         <footer className="flex m-4 px-28">
             <div className="max-w-5xl  grid grid-cols-1 sm:grid-cols-4 gap-x-40">
                 <div className="flex flex-col justify-between w-40 gap-y-10">
 
                 <Image src="/Logo.webp" alt="logo" width={150} height={50}></Image>
                 <p className="leading-7 w-35">
+
                     Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.
                 </p>
                 <div className="flex space-x-4">

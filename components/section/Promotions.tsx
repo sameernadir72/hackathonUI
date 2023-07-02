@@ -4,8 +4,9 @@ import event3 from "../../public/event3.webp"
 import Image from "next/image";
 const Promotions = () => {
     return(
+
         <div className="min-h-4xl mx-auto  pt-20 space-y-7">
-            
+
         <div className="flex flex-col justify-center items-center">
              <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-bold tracking-wider text-blue-600">PROMOTIONS</p>
              <h2 className="scroll-m-20 pb-2 text-4xl font-bold tracking-wide transition-colors first:mt-0 text-center p-1 sm:text-left">

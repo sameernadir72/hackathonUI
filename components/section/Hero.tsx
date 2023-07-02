@@ -9,6 +9,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
+
     <main className="max-w-5xl mx-auto ">
 
     <section className="flex flex-col-reverse justify-center items-center gap-8 sm:flex-row mb-12 p-6">
@@ -16,6 +17,7 @@ const Hero = () => {
     <div className=" mt-16 space-y-9 flex flex-col items-center sm:items-start">
     <Button className="cursor-text text-base p-4 px-7 bg-blue-100 text-blue-700 font-bold " variant="secondary">Sale 70%</Button>
       <h1 className="max-w-md text-4xl text-center sm:text-left font-bold sm:text-5xl text-slate-900 dark:text-white">
+
         An Industrial Take on Streetwear
       </h1>
       <p className="max-w-md text-1xl text-center sm:text-left mt-4  text-slate-700 dark:text-slate-400  ">

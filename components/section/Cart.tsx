@@ -9,24 +9,14 @@ export default function CartView ({product}:{product:Product}){
     const { cartItems, setCartItems } = useContext(contextVal);
     const {cartProducts, setCartProducts} = useContext(contextProduct);
 
+
+    const handleDeleteCart = () =>{
+        const updatedCart:Product[] = cartProducts.filter((p:Product)=>(p.id !== product.id));
+        setCartProducts(updatedCart);
+    }
+
    
-        const handleDeleteCart = () => {
-            setCartProducts((prevProducts: CartProduct[]) => {
-                const index = prevProducts.findIndex((p: CartProduct) => p.id === product.id);
-                if (index !== -1) {
-                  const updatedProducts = [...prevProducts];
-                  updatedProducts.splice(index, 1);
-              
-                  if (updatedProducts.length === 0) {
-                    setCartItems(0);
-                  }
-              
-                  return updatedProducts;
-                }
-                return prevProducts;
-              });
-          };
-    
+        
 
     const handleIncreaseQuantity = (increase:boolean) => {
         (cartProducts.map((pr:Product)=>{
@@ -62,7 +52,7 @@ export default function CartView ({product}:{product:Product}){
                     setCartItems(cartItems-1);
                 }
                 handleIncreaseQuantity(false);
-                }} className="rounded-full ">
+                }} className="rounded-full">
                 -
               </Button>
               <span className="w-9 justify-center items-center flex">{product.quantity}</span>

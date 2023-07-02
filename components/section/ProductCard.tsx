@@ -5,15 +5,15 @@ import Link from "next/link";
 const ProductCard = ({prop}:{prop:Product}) => {
   const {id} = prop;
   return (
-    <div className="px-10 py-5 mx-auto ">
-      <Link href={`/products/${id}`}>
+    <div className="py-11">
+      <Link className="" href={`/products/${id}`}>
         <Image src={prop.image} alt="product image"></Image>
-        <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">{prop.name}</h2>
-        <p className="leading-relaxed text-base">{prop.subCategory}</p>
-        <p className="leading-relaxed text-base">$ {prop.price}</p>
+        <p className="font-poppins text-lg font-semibold  text-gray-900 mt-2 tracking-wide">{prop.name}</p>
+        <p className="font-poppins text-lg  leading-loose text-gray-500">{prop.subCategory}</p>
+        <p className="font-sans-serif text-xl font-semibold text-black mt-1 tracking-normal">${prop.price}</p>
       </Link>
     </div>
   )
 }
 
-export default ProductCard; 
+export default ProductCard;

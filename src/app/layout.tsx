@@ -27,7 +27,12 @@ export default function RootLayout ({
  
   return (
     <html lang="en">
+      <head>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Condensed&display=swap" rel="stylesheet">
+      </link>
+      </head>
       <body className={inter.className}>
+
 
        
           <CartContext>
@@ -36,6 +41,7 @@ export default function RootLayout ({
             <Footer />
           </CartContext>
        
+
       </body>
     </html>
   );
