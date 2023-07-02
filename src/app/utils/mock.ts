@@ -1,4 +1,14 @@
 import { Product } from "./types";
+
+
+import kh from "../../../public/kh.png"
+import kh1 from "../../../public/kids.1.jpg"
+import kh2 from "../../../public/kids.3.jpg"
+import kh3 from "../../../public/kids.4.jpg"
+import kh4 from "../../../public/kids.5.jpg"
+import kh6 from "../../../public/kids.8.jpg"
+import kh5 from "../../../public/kids.7.jpg"
+
 import rj from "../../../public/rj.png"
 import bj from "../../../public/bj.png"
 import ps from "../../../public/ps.png"
@@ -7,10 +17,12 @@ import pink from "../../../public/pink.png"
 import brshirt from "../../../public/brshirt.png"
 import mj from "../../../public/mj.png"
 import bs from "../../../public/bs.png"
+
 import bw from "../../../public/bw.png"
 import kh from "../../../public/kh.png"
 import bbb from "../../../public/bbb.png"
 import pg from "../../../public/pg.png"
+
 
 export const products:Product[] = [
     {
@@ -18,15 +30,21 @@ export const products:Product[] = [
         name:"Star Wars Hoodie",
         price:150,
         category:"kids",
+
         subCategory:"Hoodie",
         image: kh
+       
+
     },
     {
         id:2,
         name:"Round Brown Jacket",
         price:70,
         category:"men",
+
         subCategory:"Jacket",
+
+
         image: rj
     },
     {
@@ -42,7 +60,9 @@ export const products:Product[] = [
         name:"Deep Maroon Sweat Shirt",
         price:120,
         category:"men",
+
         subCategory:"Sweater",
+
         image: ps
     },
     {
@@ -50,7 +70,9 @@ export const products:Product[] = [
         name:"Gorchii T-Shirt",
         price:90,
         category:"men",
+
         subCategory:"T Shirt",
+
         image: gorchii
     },
     {
@@ -58,7 +80,9 @@ export const products:Product[] = [
         name:"Round Black T-Shirt",
         price:70,
         category:"men",
+
         subCategory:"T Shirt",
+
         image: bs
     },
     {
@@ -66,11 +90,14 @@ export const products:Product[] = [
         name:"Light Pink Full Sleeves",
         price:145,
         category:"boys",
+
         subCategory:"Sweater",
+
         image: pink
     },
     {
         id:8,
+
         name:"Brown Sweat Shirt",
         price:115,
         category:"boys",
@@ -111,5 +138,39 @@ export const products:Product[] = [
         subCategory:"Suit",
         image: bw
     },
+
+
+       
+    {
+        id:11,
+        name:"Star Wars Hoodie",
+        price:550,
+        category:"kids",
+        image: kh1
+    },
+    
+    {
+        id:12,
+        name:"Star Wars Hoodie",
+        price:640,
+        category:"kids",
+        image: kh3
+    },
+    {
+        id:13,
+        name:"Star Wars Hoodie",
+        price:330,
+        category:"kids",
+        image: kh4
+    },
+    {
+        id:14,
+        name:"Star Wars Hoodie",
+        price:220,
+        category:"kids",
+        image: kh5
+    },
+   
+   
 
 ];
