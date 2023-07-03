@@ -18,8 +18,7 @@ const Navbar = () => {
   return (
     <header >
     <div className="flex justify-between items-center h-20 m-4 px-28">
-<nav className=" hidden sm:flex">
-  
+      <nav className=" hidden sm:flex">
       <Link href=""><Image src={"/Logo.webp"} alt="website logo" width={150} height={150} /></Link>
 
       <div>

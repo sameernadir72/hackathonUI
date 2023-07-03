@@ -33,12 +33,12 @@ export default function RootLayout ({
       </head>
       <body className={inter.className}>
 
-
-       
           <CartContext>
             <Navbar />
+            <main className="px-28">
             {children}
             <Footer />
+            </main>
           </CartContext>
        
 

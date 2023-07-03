@@ -8,8 +8,5 @@ export type Product = {
     subCategory: string,
     image: StaticImageData,
     quantity:number,
-
-
     subTotal:number
-
 }

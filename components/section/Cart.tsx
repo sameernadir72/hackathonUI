@@ -15,9 +15,6 @@ export default function CartView ({product}:{product:Product}){
         setCartProducts(updatedCart);
     }
 
-   
-        
-
     const handleIncreaseQuantity = (increase:boolean) => {
         (cartProducts.map((pr:Product)=>{
             if(pr.id == product.id){
@@ -37,16 +34,16 @@ export default function CartView ({product}:{product:Product}){
 
     return(
         <div className="">
-            <div className="flex justify-center">
-            <Image className="rounded-lg" src={product.image} alt="product image" width={160} height={30}></Image>
-            <div className="mr-44 ml-7">
-                <span className="flex">{product.name}<button onClick={() => handleDeleteCart()}><Trash2/></button></span>
-                <p>{product.subCategory}</p>
-                <p>Delivery Estimation</p>
-                <p>5 Working Days</p>
+            <div className="flex justify-center mt-6">
+            <Image className="rounded-lg" src={product.image} alt="product image" width={189}></Image>
+            <div className="mr-44 ml-7 space-y-3">
+                <span className="flex text-xl font-poppins tracking-wide w-96">{product.name}<button onClick={() => handleDeleteCart()}><Trash2 className="ml-24"/></button></span>
+                <p className="text-gray-500 font-semibold">{product.subCategory}</p>
+                <p className="font-semibold">Delivery Estimation</p>
+                <p className="text-yellow-400 font-semibold text-base">5 Working Days</p>
                 <div className="flex">
-                <p>${product.subTotal}</p>
-                <div className="flex gap-2 ml-28">
+                <p className="text-xl font-semibold">${product.subTotal}</p>
+                <div className="flex gap-2 ml-56">
               <Button onClick={() => {
                 if(product.quantity>1){
                     setCartItems(cartItems-1);
@@ -68,11 +65,11 @@ export default function CartView ({product}:{product:Product}){
             </div>
             </div>
             </div>
-            <div className="bg-slate-100 space-y-5 ml-10">
-            <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">Order Summary</h3>
-            <span className="flex">Quantity<p className="pl-7">{product.quantity} Product</p></span>
-            <span className="flex">Sub Total<p className="pl-7">${product.subTotal}</p></span>
-            <Button>Process to Checkout</Button>
+            <div className="bg-slate-50 space-y-5 ml-7 p-7">
+            <h3 className="scroll-m-20 text-xl font-bold font-poppins tracking-tight">Order Summary</h3>
+            <span className="flex font-poppins">Quantity<p className="pl-7 w-max">{product.quantity} Product</p></span>
+            <span className="flex font-poppins">Sub Total<p className="pl-7">${product.subTotal}</p></span>
+            <Button className="bg-black rounded-none w-max">Process to Checkout</Button>
             </div>
 
             </div>

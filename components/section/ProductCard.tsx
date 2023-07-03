@@ -5,7 +5,7 @@ import Link from "next/link";
 const ProductCard = ({prop}:{prop:Product}) => {
   const {id} = prop;
   return (
-    <div className="py-11">
+    <div className="py-4">
       <Link className="" href={`/products/${id}`}>
         <Image src={prop.image} alt="product image"></Image>
         <p className="font-poppins text-lg font-semibold  text-gray-900 mt-2 tracking-wide">{prop.name}</p>

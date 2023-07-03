@@ -15,19 +15,24 @@ const Promotions = () => {
         </div>
         <div className="flex flex-col  justify-center sm:flex-row space-x-2">
             <div className="space-y-5 my-4 md:my-0 ">
-                <div className="bg-gray-300 w-96 h-40  p-7 flex flex-col">
-                <h2 className="scroll-m-20 text-black text-3xl font-semibold tracking-tight transition-colors first:mt-0 text-center sm:text-left">
+                <div className="bg-gray-300 w-[480px] h-[200px]  p-7 flex">
+                    <div className="flex flex-col space-y-1">
+                <h2 className="scroll-m-20 text-black text-3xl font-semibold tracking-widest transition-colors first:mt-0 text-center sm:text-left">
                 GET UPTO</h2>
                 <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl text-center sm:text-left">
                 60%</h1>
-                <p className="leading-7 text-black">For the summer season </p>
+                <p className="text-black tracking-wide text-lg w-44">For the summer season </p>
                 </div>
-                <div className="bg-stone-900 w-96 h-40 items-center justify-center flex flex-col">
-                <h2 className="scroll-m-20 text-white pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+                <div className="flex justify-end ml-32">
+                    <Image className="" src={event3} alt="event3" width={150}></Image>
+                </div>
+                </div>
+                <div className="bg-stone-900 w-[480px] h-[200px] items-center justify-center flex flex-col">
+                <h2 className="scroll-m-20 text-white pb-2 text-5xl font-semibold tracking-tight transition-colors first:mt-0">
                 GET 30% Off</h2>
                 <p className="leading-7 text-white">
                     USE PROMO CODE </p>
-                    <Badge variant="secondary" className="text-white bg-zinc-500 px-7 rounded-md">DINEWEEKENDSALE</Badge>
+                    <Badge variant="secondary" className="text-white bg-zinc-600 px-7 rounded-md text-lg tracking-widest">DINEWEEKENDSALE</Badge>
                 </div>
             </div>
 
