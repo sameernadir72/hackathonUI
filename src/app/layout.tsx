@@ -4,7 +4,11 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "../../components/section/Footer";
 import { CartContext } from "../../components/section/CartContext";
+import  Menu  from "../../components/section/Menu";
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { MenuIcon } from "lucide-react";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +28,7 @@ export default function RootLayout ({
 }: {
   children: React.ReactNode;
 }) {
- 
+ const [hide, setHide] = useState(false);
   return (
     <html lang="en">
       <head>
@@ -32,14 +36,29 @@ export default function RootLayout ({
       </link>
       </head>
       <body className={inter.className}>
+        { hide ? (
+
+<Menu />
+        ):(
 
           <CartContext>
-            <Navbar />
-            <main className="px-28">
-            {children}
-            <Footer />
-            </main>
-          </CartContext>
+            <div className=" sm:hidden">
+<div className="flex  gap-4">
+      <Link href=""><Image src={"/Logo.webp"} alt="website logo" width={200} height={250} /></Link>
+      <MenuIcon  onClick={() => setHide(true)}/>
+
+    </div>
+    </div>
+          <Navbar />
+          <main className="px-28">
+          {children}
+          <Footer />
+          </main>
+        </CartContext>
+        
+
+        )}
+       
        
 
       </body>
