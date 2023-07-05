@@ -32,7 +32,7 @@ const Promotions = () => {
                 GET 30% Off</h2>
                 <p className="leading-7 text-white">
                     USE PROMO CODE </p>
-                    <Badge variant="secondary" className="text-white bg-zinc-600 px-7 rounded-md text-lg tracking-widest">DINEWEEKENDSALE</Badge>
+                    <Badge variant="default" className="text-white bg-zinc-600 px-7 rounded-md text-lg tracking-widest hover:">DINEWEEKENDSALE</Badge>
                 </div>
             </div>
 

@@ -45,9 +45,11 @@ export const ProductView = (product: Product) => {
 }
 
 const size = ['XS','S','M','L','XL'];
+const [selected,setSelected] = useState('')
+
   return ( 
     <div className="bg-zinc-50 mb-44">
-      <div className="flex  my-10 gap-x-3">
+      <div className="flex  my-10 gap-x-3 px-28">
         <Link href=" "><Image src={product.image} alt="pr-img-mini" width={100} height={100}></Image></Link>
         <Image className="ml-6" src={product.image} alt="product image" width={500}></Image>
         <div className="flex flex-col mt-16 ml-3">
@@ -56,7 +58,11 @@ const size = ['XS','S','M','L','XL'];
           <p className="my-1 font-bold">SELECT SIZE</p>
           <ul className="flex space-x-5 my-1">
             {size.map((s,index)=>(
-              <li key={index} className="h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center">
+
+              <li key={index} onClick={(e)=>{
+                // s===e.target.value?
+                setSelected(s)}} 
+              className={`h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center ${selected===s?'bg-gray-300 rounded-full':' '}`}>
                 {s}
               </li>
             ))}
@@ -92,7 +98,7 @@ const size = ['XS','S','M','L','XL'];
           </div>
         </div>
       </div>
-      <div className="mx-auto px-10 bg-white mt-36">
+      <div className="mx-auto bg-white mt-36 px-28">
         <Image
           src={pro}
           alt="product"
@@ -117,12 +123,12 @@ const size = ['XS','S','M','L','XL'];
           <p className="scroll-m-20 text-lg font-bold tracking-tight text-gray-500">
             PRODUCT CARE
           </p>
-          <ul className="list-inside">
+          <ol className="list-item list-disc">
             <li>Hand wash using cold water.</li>
             <li>Do not using bleach.</li>
             <li>Hang it to dry.</li>
             <li>Iron on low temperature.</li>
-          </ul>
+          </ol>
         </div>
       </div>
     </div>

@@ -8,11 +8,15 @@ import Products from "../../components/section/Products";
 export default function Home() {
   return (
     <>
+    <main className="px-28">
       <Hero />
        <Promotions />
       <Products />
+      </main>
       <Desc />
+      <main className="px-28">
       <Newsletter />
+      </main>
     </>
   );
 }

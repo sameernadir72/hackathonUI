@@ -11,7 +11,7 @@ export default function Page({ params }: { params: { category: string } }) {
     const filteredProducts = filterProducts(params.category);
     return (
       <>
-      <section className="text-gray-600 body-font ml-5 mt-7">
+      <section className="text-gray-600 body-font ml-5 mt-7 px-28">
   {/* <div className="container px-5 py-11 mx-auto"> */}
 
       <div className="grid sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-14">
