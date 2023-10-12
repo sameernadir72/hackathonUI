@@ -21,8 +21,6 @@ export default function Page({ params }: { params: { id: number} }) {
       {
         filteredProducts.map((product:Product,index:number) => (
             <ProductCard key={index} prop={product} ></ProductCard>
-
-       
         ))
       }
 
