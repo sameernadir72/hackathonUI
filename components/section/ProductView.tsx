@@ -7,11 +7,12 @@ import { Key, ShoppingCart, X } from "lucide-react";
 import { Product } from "@/app/utils/types";
 import pro from "../../public/project.png";
 import { useContext, useState } from "react";
-import { contextProduct, contextVal } from "./CartContext";
+import { contextProduct, contextVal, totalAmount } from "./CartContext";
 
 export const ProductView = (product: Product) => {
   const { cartItems, setCartItems } = useContext(contextVal);
   const { cartProducts, setCartProducts } = useContext(contextProduct);
+  const { total, setTotal } = useContext(totalAmount);
   const [quantity,setQuantity] = useState(1);
 
   const prodExistsInCart = () => {
@@ -20,6 +21,7 @@ export const ProductView = (product: Product) => {
           setCartItems(cartItems + quantity);
           p.quantity+=quantity;
           p.subTotal += product.price*quantity;
+          setTotal(total+p.price);
         }
       })
     }
@@ -40,6 +42,7 @@ export const ProductView = (product: Product) => {
     }
     setCartItems(cartItems + quantity);
     setCartProducts([...cartProducts, p]);
+    setTotal((prevTotal:number) => prevTotal + p.price);
     console.log("cartItems", cartProducts);
   }
 }
