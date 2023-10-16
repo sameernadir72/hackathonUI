@@ -53,7 +53,7 @@ const [selected,setSelected] = useState('')
   return ( 
     <div className="bg-zinc-50 mb-44">
       <div className="flex  my-10 gap-x-3 px-28">
-        <Link href=" "><Image src={product.image} alt="pr-img-mini" width={100} height={100}></Image></Link>
+        <Link href="/"><Image src={product.image} alt="pr-img-mini" width={100} height={100}></Image></Link>
         <Image className="ml-6" src={product.image} alt="product image" width={500}></Image>
         <div className="flex flex-col mt-16 ml-3">
           <h1 className="my-1 font-poppins text-3xl font-medium">{product.name}</h1>

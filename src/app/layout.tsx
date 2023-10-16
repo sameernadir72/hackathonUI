@@ -42,7 +42,7 @@ export default function RootLayout({
           <CartContext>
             <div className=" sm:hidden">
               <div className="flex  gap-4">
-                <Link href=""><Image src={"/Logo.webp"} alt="website logo" width={200} height={250} /></Link>
+                <Link href="/"><Image src={"/Logo.webp"} alt="website logo" width={200} height={250} /></Link>
                 <MenuIcon onClick={() => setHide(true)} />
               </div>
             </div>

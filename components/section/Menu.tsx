@@ -20,7 +20,7 @@ const Menu = ({  setHide,children }: MenuProps) => {
       {show ? (
         <nav >
           <div className="flex justify-between ">
-            <Link href="">
+            <Link href="/">
               <Image src="/Logo.webp" alt="website logo" width={150} height={150} />
             </Link>
             <XSquare onClick={() => setHide(false)} />

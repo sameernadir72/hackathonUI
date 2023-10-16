@@ -13,9 +13,9 @@ const Footer = () => {
                     Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.
                 </p>
                 <div className="flex space-x-4">
-                    <Link href="" className="bg-gray-200 rounded-lg p-2"><TwitterIcon /></Link>
-                    <Link href="" className="bg-gray-200 rounded-lg p-2"><FacebookIcon /></Link>
-                    <Link href="" className="bg-gray-200 rounded-lg p-2"><LinkedinIcon /></Link>
+                    <Link href="/" className="bg-gray-200 rounded-lg p-2"><TwitterIcon /></Link>
+                    <Link href="/" className="bg-gray-200 rounded-lg p-2"><FacebookIcon /></Link>
+                    <Link href="/" className="bg-gray-200 rounded-lg p-2"><LinkedinIcon /></Link>
                 </div>
                 </div>
                 <div className="flex ml-28 space-x-16 mb-3 -mt-1">
@@ -25,11 +25,11 @@ const Footer = () => {
                         Company
                     </h4>
                     <div className="mt-5 space-y-3 w-40 tracking-wide text-gray-600 font-poppins">
-                        <p><Link href="" className="">About</Link></p>
-                        <p><Link href="">Terms Of Use</Link></p>
-                        <p><Link href=""> Privacy Policy</Link></p>
-                        <p><Link href="">How it Works</Link></p>
-                        <p><Link href="">Contact Us</Link></p>
+                        <p><Link href="/" className="">About</Link></p>
+                        <p><Link href="/">Terms Of Use</Link></p>
+                        <p><Link href="/"> Privacy Policy</Link></p>
+                        <p><Link href="/">How it Works</Link></p>
+                        <p><Link href="/">Contact Us</Link></p>
                     </div>
                 </div>
             </div>
@@ -40,9 +40,9 @@ const Footer = () => {
                         Support
                     </h4>
                     <div className="mt-5 space-y-3 w-40 tracking-wide text-gray-600 font-poppins">
-                    <p><Link href="">Support Carrer</Link></p>
-                    <p><Link href="">24h Service</Link></p>
-                    <p><Link href=""> Quick Chat</Link></p>
+                    <p><Link href="/">Support Carrer</Link></p>
+                    <p><Link href="/">24h Service</Link></p>
+                    <p><Link href="/"> Quick Chat</Link></p>
                     </div>
                 </div>
             </div>

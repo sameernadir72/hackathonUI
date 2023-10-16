@@ -20,7 +20,7 @@ const Navbar = () => {
     <div className="flex justify-between items-center h-20 m-4 px-28">
       <nav className=" hidden sm:flex">
       <div className="pr-20">
-      <Link href=""><Image src={"/Logo.webp"} alt="website logo" width={150} height={150} /></Link>
+      <Link href="/"><Image src={"/Logo.webp"} alt="website logo" width={150} height={150} /></Link>
       </div>
       <div>
         <NavigationMenu>

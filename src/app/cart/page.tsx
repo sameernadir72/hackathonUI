@@ -11,7 +11,7 @@ import { ShoppingBagIcon } from "lucide-react";
 import { Button } from "components/ui/button";
 import axios from "axios";
 import getStripe from "@/lib/stripe-load";
-import { createCheckoutSession } from "./checkout"
+// import { createCheckoutSession } from "./checkout";
 
 export default function Page() {
   const { cartProducts } = useContext(contextProduct);
@@ -19,7 +19,20 @@ export default function Page() {
   const { total } = useContext(totalAmount);
 
   const handleCheckout = async () => {
-    await createCheckoutSession(cartProducts);
+    const checkoutSession = await axios.post(
+      "/api/checkout_session",
+      cartProducts
+    );
+    if (checkoutSession.status == 500) {
+      console.log(checkoutSession.statusText);
+      return;
+    }
+
+    const stripe = await getStripe();
+    const { error } = await stripe!.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+    console.warn(error);
   };
 
   return (

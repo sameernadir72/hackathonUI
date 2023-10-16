@@ -1,4 +1,4 @@
-import { stripe } from "@/lib/utils";
+import stripe from "@/lib/utils";
 import { loadStripe } from "@stripe/stripe-js";
 import { StaticImageData } from "next/image";
 import { NextRequest, NextResponse } from "next/server";
@@ -11,23 +11,20 @@ interface ProductCheckoutProps {
     quantity: number;
 }
 
-export async function POST(req: NextRequest, res: NextResponse){
+export async function POST(req: NextRequest){
     try {
         const body: ProductCheckoutProps[] = await req.json(); // array of items
         console.log(body);
-        console.log(req, res);
 
-        let items:Stripe.Checkout.SessionCreateParams.LineItem[];
-
-        items = body.map((item) => {
+        const line_items = body.map((item) => {
             return {
                 price_data: {
                     currency: 'usd',
                     product_data: {
                         name: item.name,
-                        images: [item.image.src],
+                        images: [req.nextUrl.origin+item.image.src],
                     },
-                    unit_amount: item.price,
+                    unit_amount: item.price * 100,
                 },
                 quantity: item.quantity,
             }
@@ -35,13 +32,14 @@ export async function POST(req: NextRequest, res: NextResponse){
 
         const params: Stripe.Checkout.SessionCreateParams = {
             mode: "payment",
-            line_items : items,
+            line_items,
             payment_method_types: ["card"],
-            success_url: `${req.nextUrl.href}/?status=success`,
-            cancel_url: `${req.nextUrl.href}/?status=cancel`,
+            success_url: `${req.nextUrl.origin}/successPay`,
+            cancel_url: `${req.nextUrl.origin}/cart?status=cancel`,
         }
-        
         const session = await stripe.checkout.sessions.create(params);
+        console.log('session_id', session.id);
+        console.log('session_url',session.url);
         return NextResponse.json({id: session.id});
     } catch(err){
         console.log(err);
