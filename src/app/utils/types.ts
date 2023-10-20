@@ -3,10 +3,14 @@ import { StaticImageData } from "next/image"
 export type Product = {
     id: number,
     name: string,
-    price: number,
+    description: string,
     category: string,
     subCategory: string,
-    image: StaticImageData,
-    quantity:number,
+    size: string[],
+    main_image: StaticImageData,
+    images: StaticImageData[], 
+    isSoldOut: boolean,
+    isFavourite: boolean,
+    price: number,
     subTotal:number
 }

@@ -14,6 +14,20 @@ export const category = defineType({
   ],
 });
 
+export const subCategory = defineType({
+  title: "Sub Category",
+  name: "subcategory",
+  type: "document",
+  fields: [
+    defineField({
+      title: "Sub Category Name",
+      name: "name",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+});
+
 export const size = defineType({
   title: "Size",
   name: "size",
@@ -41,7 +55,7 @@ export const product = defineType({
     defineField({
       name: "description",
       title: "Description",
-      type: "string",
+      type: "text",
     }),
     defineField({
       name: "category",
@@ -76,7 +90,11 @@ export const product = defineType({
       name: "is_soldOut",
       title: "Sold Out",
       type: "boolean",
-      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "is_favourite",
+      title: "Favourite",
+      type: "boolean",
     }),
     defineField({
       name: "price",
