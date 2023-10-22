@@ -3,15 +3,19 @@ import Footer from "../../components/section/Footer";
 import Newsletter from "../../components/section/newsletter";
 import Promotions from "../../components/section/Promotions";
 import Desc from "../../components/section/desc";
-import Products from "../../components/section/Products";
+import { Product } from "./utils/types";
+import { fetchFeaturedProducts } from "./products";
+import Featured from "components/section/Featured";
 
-export default function Home() {
+export default async function Home() {
+  const featuredProducts:Product[] = await fetchFeaturedProducts();
+  console.log(featuredProducts);
   return (
     <>
     <main className="px-28">
       <Hero />
        <Promotions />
-      <Products />
+      <Featured featuredProducts={featuredProducts}/>
       </main>
       <Desc />
       <main className="px-28">

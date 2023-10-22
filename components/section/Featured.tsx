@@ -1,11 +1,10 @@
 import Image from "next/image";
 import ProductCard from "./ProductCard";
-import { products } from "@/app/utils/mock";
+import { fetchFeaturedProducts } from "@/app/products";
+import { Product } from "@/app/utils/types";
 
-const Products = () => {
-    const p1 = products[6]; 
-    const p2 = products[4]; 
-    const p3 = products[3]; 
+const Featured = ({featuredProducts}:{featuredProducts:Product[]}) => {
+    // console.log(featuredProducts[0]);
     return(
         <div className="pt-20 space-y-14 ">
             <div className="flex flex-col justify-center items-center gap-y-2">
@@ -15,12 +14,14 @@ const Products = () => {
             </h2>
             </div>
             <div className="flex flex-col sm:flex-row justify-center items-center">
-                <ProductCard prop={p1}></ProductCard>
-                <ProductCard prop={p2}></ProductCard>
-                <ProductCard prop={p3}></ProductCard>
+                {
+                    featuredProducts.map((product) => (
+                        <ProductCard prop={product} key={product._rev}/>
+                    ))
+                }
             </div>
         </div>
 )
 }
 
-export default Products;
+export default Featured;

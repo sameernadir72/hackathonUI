@@ -1,30 +1,22 @@
-import { products } from "@/app/utils/mock";
 import { ProductView } from "../../../../components/section/ProductView";
 import { Product } from "@/app/utils/types";
 import ProductCard from "../../../../components/section/ProductCard";
+import { fetchProductByID } from "@/app/products";
 
-const filterProducts = (id:number) => {
-  return (products.filter((product) => (
-      product.id === id
-  )))
-}
-export default function Page({ params }: { params: { id: number} }) {
-    const product:Product = products[params.id-1];
-    const filteredProducts = filterProducts(params.id);
-    return (
+export default async function Page({ params }: { params: { id: string } }) {
+  
+  const filterProduct:Product = await fetchProductByID(params.id);
 
-      <div>
-        <ProductView {...product} />
+  return (
+    <div>
+      <ProductView {...filterProduct} />
 
-    <div >
-      <h1 className="font-extrabold"></h1>
-      {
-        filteredProducts.map((product:Product,index:number) => (
-            <ProductCard key={index} prop={product} ></ProductCard>
-        ))
-      }
-
-      </div>
-      </div>
-  )
+      {/* <div>
+        <h1 className="font-extrabold"></h1>
+        {filteredProducts.map((product: Product, index: number) => (
+          <ProductCard key={index} prop={product}></ProductCard>
+        ))}
+      </div> */}
+    </div>
+  );
 }

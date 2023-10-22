@@ -2,21 +2,18 @@
 import CartView from "../../../components/section/Cart";
 import { Product } from "../utils/types";
 import {
-  contextProduct,
-  contextVal,
-  totalAmount,
-} from "../../../components/section/CartContext";
+  CartContext,
+} from "../../providers/CartContext";
 import { useContext, useState } from "react";
 import { ShoppingBagIcon } from "lucide-react";
 import { Button } from "components/ui/button";
 import axios from "axios";
 import getStripe from "@/lib/stripe-load";
+import { orders } from "@/lib/drizzle";
 // import { createCheckoutSession } from "./checkout";
 
 export default function Page() {
-  const { cartProducts } = useContext(contextProduct);
-  const { cartItems, setCartItems } = useContext(contextVal);
-  const { total } = useContext(totalAmount);
+  const { cartProducts, cartItems, setCartItems, total } = useContext(CartContext);
 
   const handleCheckout = async () => {
     const checkoutSession = await axios.post(
@@ -33,6 +30,7 @@ export default function Page() {
       sessionId: checkoutSession.data.id,
     });
     console.warn(error);
+    
   };
 
   return (
