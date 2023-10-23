@@ -2,7 +2,8 @@ import { Badge } from "../ui/badge";
 import event2 from "../../public/event2.webp"
 import event3 from "../../public/event3.webp"
 import Image from "next/image";
-const Promotions = () => {
+import { PromotionData } from "@/app/utils/types";
+const Promotions = ({data} : {data: PromotionData}) => {
     return(
 
         <div className="min-h-4xl mx-auto  pt-20 space-y-7">

@@ -1,7 +1,7 @@
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import Stripe from "stripe";
-import { fetchCategories } from "@/app/products";
+import { fetchCategories } from "@/app/data";
 import { Category } from "@/app/utils/types";
 
 export function cn(...inputs: ClassValue[]) {
@@ -13,4 +13,3 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!, {
 });
 
 export default stripe;
-

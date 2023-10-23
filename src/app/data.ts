@@ -1,7 +1,48 @@
 "use server";
 
 import { client } from "./utils/sanity-client";
-import { Category, Product } from "./utils/types";
+import { Category, FeaturedData, HeroSecData, Product, PromotionData } from "./utils/types";
+
+////////////////////
+// Hero Section Data
+////////////////////
+
+export const fetchHeroSecData = async () => {
+  const heroSecData: HeroSecData = await client.fetch({
+    query: `*[_type == "landing"]{
+     hero
+    }`,
+  });
+  return heroSecData;
+};
+
+///////////////////
+// Promotions Data
+///////////////////
+
+export const fetchPromotionsData = async () => {
+  const promData: PromotionData = await client.fetch({
+    query: `*[_type == "landing"]{
+     promotions
+    }`,
+  });
+  return promData;
+};
+
+///////////////////
+// Featured Data
+///////////////////
+
+export const fetchFeaturedData = async () => {
+  const featData: FeaturedData = await client.fetch({
+    query: `*[_type == "landing"]{
+      featured
+    }`,
+  });
+  return featData;
+};
+
+
 
 ///////////////////
 // Products Data

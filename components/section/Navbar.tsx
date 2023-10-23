@@ -11,12 +11,12 @@ import {
 import { Category, Product } from "@/app/utils/types";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../src/providers/CartContext";
-import { fetchCategories } from "@/app/products";
+import { fetchCategories } from "@/app/data";
 
-const Navbar = ({navLinks}:{navLinks:Category[]}) => {
+const Navbar = ({ navLinks }: { navLinks: Category[] }) => {
   const { cartItems } = useContext(CartContext);
   const [show, setShow] = useState(false);
- 
+
   return (
     <header>
       <div className="flex justify-between items-center h-20 m-4 px-28">
@@ -37,11 +37,18 @@ const Navbar = ({navLinks}:{navLinks:Category[]}) => {
                 <NavigationMenuItem className="text-lg">
                   <Link href={`/shop`}>Shop</Link>
                 </NavigationMenuItem>
-                {navLinks!=null?navLinks.slice(0, 4).map((category) => (
-                  <NavigationMenuItem className=" text-lg" key={category.id}>
-                    <Link href={`/shop/${category.name}`}>{category.name}</Link>
-                  </NavigationMenuItem>
-                )): null}
+                {navLinks != null
+                  ? navLinks.slice(0, 4).map((category) => (
+                      <NavigationMenuItem
+                        className=" text-lg"
+                        key={category.id}
+                      >
+                        <Link href={`/shop/${category.name}`}>
+                          {category.name}
+                        </Link>
+                      </NavigationMenuItem>
+                    ))
+                  : null}
               </NavigationMenuList>
             </NavigationMenu>
           </div>

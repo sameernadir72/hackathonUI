@@ -1,4 +1,4 @@
-import { fetchProductByCategory } from "@/app/products";
+import { fetchProductByCategory } from "@/app/data";
 import ProductCard from "../../../../components/section/ProductCard";
 
 export default async function Page({

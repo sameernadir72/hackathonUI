@@ -14,10 +14,15 @@ export const landing = defineType({
       type: "document",
       fields: [
         defineField({
+          name: "label",
+          title: "Label",
+          type: "string",
+        }),
+        defineField({
           name: "heading",
           title: "Heading",
           type: "string",
-          validation: (Rule) => Rule.required();
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: "sub_heading",
@@ -25,35 +30,52 @@ export const landing = defineType({
           type: "string",
         }),
         defineField({
-          name: "label",
-          title: "Label",
-          type: "string",
-        }),
-        defineField({
           name: "image",
           title: "Image",
           type: "image",
-          validation: (Rule) => Rule.required()
+          validation: (Rule) => Rule.required(),
         }),
-      ]
-    }),
-    
-    defineField({
-      name: "hero_img",
-      title: "Hero Image",
-      type: "image",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "hero_img",
-      title: "Hero Image",
-      type: "image",
-      validation: (Rule) => Rule.required(),
+        defineField({
+          name: "bg_color",
+          title: "Image Background Color Code",
+          type: "string",
+        }),
+      ],
     }),
 
-  ]
+    defineField({
+      title: "Promotions",
+      name: "promotions",
+      type: "document",
+      fields: [
+        defineField({
+          name: "title",
+          title: "Title",
+          type: "string",
+        }),
+        defineField({
+          name: "banners",
+          title: "Banners",
+          type: "array",
+          of: [{ type: "image" }],
+        }),
+      ],
+    }),
+
+    defineField({
+      title: "Featured",
+      name: "featured",
+      type: "document",
+      fields: [
+        defineField({
+          title: "Title",
+          name: "title",
+          type: "string",
+        }),
+      ],
+    }),
+  ],
 });
-
 
 export const category = defineType({
   title: "Category",
@@ -127,10 +149,10 @@ export const product = defineType({
       name: "subCategory",
       title: "Sub Category",
       type: "reference",
-      to:[
+      to: [
         {
           type: "subcategory",
-        }
+        },
       ],
       validation: (Rule) => Rule.required(),
     }),

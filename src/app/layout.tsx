@@ -1,4 +1,3 @@
-
 import Navbar from "../../components/section/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -10,7 +9,7 @@ import { MenuIcon } from "lucide-react";
 import Menu from "components/section/Menu";
 import Image from "next/image";
 import { MenuProps } from "components/section/Menu";
-import { fetchCategories } from "./products";
+import { fetchCategories } from "./data";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,11 +37,11 @@ export default async function RootLayout({
         ></link>
       </head>
       <body className={inter.className}>
-          <CartContextProvider>
-            <Navbar navLinks={categories}/>
-            {children}
-            <Footer />
-          </CartContextProvider>
+        <CartContextProvider>
+          <Navbar navLinks={categories} />
+          {children}
+          <Footer />
+        </CartContextProvider>
       </body>
     </html>
   );

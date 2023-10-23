@@ -1,11 +1,10 @@
 import { ProductView } from "../../../../components/section/ProductView";
 import { Product } from "@/app/utils/types";
 import ProductCard from "../../../../components/section/ProductCard";
-import { fetchProductByID } from "@/app/products";
+import { fetchProductByID } from "@/app/data";
 
 export default async function Page({ params }: { params: { id: string } }) {
-  
-  const filterProduct:Product = await fetchProductByID(params.id);
+  const filterProduct: Product = await fetchProductByID(params.id);
 
   return (
     <div>

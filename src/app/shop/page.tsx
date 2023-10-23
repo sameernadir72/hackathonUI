@@ -1,5 +1,5 @@
 import ProductCard from "../../../components/section/ProductCard";
-import { fetchAllProducts } from "../products";
+import { fetchAllProducts } from "../data";
 import { client } from "../utils/sanity-client";
 import { Product } from "../utils/types";
 

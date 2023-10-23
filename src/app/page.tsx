@@ -3,23 +3,26 @@ import Footer from "../../components/section/Footer";
 import Newsletter from "../../components/section/newsletter";
 import Promotions from "../../components/section/Promotions";
 import Desc from "../../components/section/desc";
-import { Product } from "./utils/types";
-import { fetchFeaturedProducts } from "./products";
+import { HeroSecData, Product, PromotionData } from "./utils/types";
+import { fetchFeaturedData, fetchFeaturedProducts, fetchHeroSecData, fetchPromotionsData } from "./data";
 import Featured from "components/section/Featured";
 
 export default async function Home() {
-  const featuredProducts:Product[] = await fetchFeaturedProducts();
-  console.log(featuredProducts);
+  const featuredProducts: Product[] = await fetchFeaturedProducts();
+  const heroSecData: HeroSecData = await fetchHeroSecData();
+  const promotionsData: PromotionData = await fetchPromotionsData();
+  const featuredData = await fetchFeaturedData();
+  console.log(heroSecData);
   return (
     <>
-    <main className="px-28">
-      <Hero />
-       <Promotions />
-      <Featured featuredProducts={featuredProducts}/>
+      <main className="px-28">
+        <Hero data={heroSecData} />
+        <Promotions data={promotionsData}/>
+        <Featured featuredProducts={featuredProducts} data={featuredData} />
       </main>
       <Desc />
       <main className="px-28">
-      <Newsletter />
+        <Newsletter />
       </main>
     </>
   );

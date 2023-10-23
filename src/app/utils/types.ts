@@ -1,5 +1,22 @@
 import { StaticImageData } from "next/image"
 
+export type HeroSecData = {
+    label: string;
+    heading: string;
+    subHeading: string;
+    image: Image;
+    bgColor: string;
+}
+
+export type PromotionData = {
+    title: string;
+    banners: Image[];
+}
+
+export type FeaturedData = {
+    title: string;
+}
+
 type Image = {
     asset: {
         url: string
