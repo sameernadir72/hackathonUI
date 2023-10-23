@@ -10,7 +10,7 @@ import { HeroSecData } from "@/app/utils/types";
 
 const Hero = ({data}:{data: HeroSecData}) => {
   return (
-    <main className="max-w-5xl ">
+    <main className=" ">
       <section className="flex flex-col-reverse justify-center items-center gap-8 sm:flex-row mb-12 p-6 ">
         <article className="w-1/2">
           <div className=" mt-16 space-y-9 flex flex-col items-center sm:items-start">

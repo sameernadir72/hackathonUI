@@ -34,7 +34,7 @@ export default function Page() {
   };
 
   return (
-    <div className="m-20 mb-44">
+    <div className="mb-44">
       <div>
         <h3 className="scroll-m-20 text-2xl font-bold tracking-tight text-black -ml-12">
           Shopping Cart

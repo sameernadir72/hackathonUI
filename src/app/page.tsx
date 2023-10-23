@@ -15,7 +15,7 @@ export default async function Home() {
   console.log(heroSecData);
   return (
     <>
-      <main className="px-28">
+      <main className="">
         <Hero data={heroSecData} />
         <Promotions data={promotionsData}/>
         <Featured featuredProducts={featuredProducts} data={featuredData} />

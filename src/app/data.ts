@@ -1,11 +1,18 @@
 "use server";
 
 import { client } from "./utils/sanity-client";
-import { Category, FeaturedData, HeroSecData, Product, PromotionData } from "./utils/types";
+import { Category, FeaturedData, HeroSecData, Image, Product, PromotionData } from "./utils/types";
 
 ////////////////////
 // Hero Section Data
 ////////////////////
+
+export const fetchLogo = async () => {
+  const logo:Image = await client.fetch({
+    query: `*[_type == "logo"]`
+  });
+  return logo;
+}
 
 export const fetchHeroSecData = async () => {
   const heroSecData: HeroSecData = await client.fetch({

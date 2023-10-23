@@ -55,7 +55,7 @@ export const ProductView = (product: Product) => {
 
   return (
     <div className="bg-zinc-50 mb-44">
-      <div className="flex  my-10 gap-x-3 px-28">
+      <div className="flex my-10 gap-x-3">
         <Link href="/">
           <Image
             src={product.image}

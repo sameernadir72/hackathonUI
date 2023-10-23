@@ -9,7 +9,7 @@ export default async function Page({
   const filteredProducts = await fetchProductByCategory(params.category);
   return (
     <>
-      <section className="text-gray-600 body-font ml-5 mt-7 px-28">
+      <section className="text-gray-600 body-font ml-5 mt-7">
         <div className="grid sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-14">
           {filteredProducts.map((product) => (
             <ProductCard key={product._rev} prop={product}></ProductCard>

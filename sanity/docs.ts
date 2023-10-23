@@ -3,6 +3,12 @@ import { defineField, defineType } from "sanity";
 
 // Landing Page
 
+export const logo = defineField({
+  name: "logo",
+  title: "Logo",
+  type: "image"
+});
+
 export const landing = defineType({
   name: "landing_page",
   title: "Landing Page",
@@ -71,6 +77,46 @@ export const landing = defineType({
           title: "Title",
           name: "title",
           type: "string",
+        }),
+      ],
+    }),
+
+    defineField({
+      title: "Description",
+      name: "desc",
+      type: "document",
+      fields: [
+        defineField({
+          title: "Heading",
+          name: "heading",
+          type: "string",
+        }),
+        defineField({
+          title: "Image",
+          name: "image",
+          type: "image",
+        }),
+        defineField({
+          title: "Sub Headings",
+          name: "sub_headings",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              fields: [
+                {
+                  title: "Title",
+                  name: "title",
+                  type: "string",
+                },
+                {
+                  title: "Description",
+                  name: "description",
+                  type: "text",
+                },
+              ],
+            },
+          ],
         }),
       ],
     }),

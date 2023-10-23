@@ -17,7 +17,7 @@ export type FeaturedData = {
     title: string;
 }
 
-type Image = {
+export type Image = {
     asset: {
         url: string
     }
