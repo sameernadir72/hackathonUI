@@ -13,22 +13,10 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../src/providers/CartContext";
 import { fetchCategories } from "@/app/products";
 
-const Navbar = () => {
+const Navbar = ({navLinks}:{navLinks:Category[]}) => {
   const { cartItems } = useContext(CartContext);
   const [show, setShow] = useState(false);
-  const [navLinks, setNavLinks] = useState<Category[] | null>(null);
-
-  async function getNavlinks() {
-    const categories = await fetchCategories();
-    setNavLinks(categories);
-  }
-
-  useEffect(() => {
-    getNavlinks();
-  }, []);
-  console.log(navLinks);
-
-  console.log("show", show);
+ 
   return (
     <header>
       <div className="flex justify-between items-center h-20 m-4 px-28">
@@ -49,11 +37,11 @@ const Navbar = () => {
                 <NavigationMenuItem className="text-lg">
                   <Link href={`/shop`}>Shop</Link>
                 </NavigationMenuItem>
-                {navLinks!.slice(0, 4).map((category) => (
+                {navLinks!=null?navLinks.slice(0, 4).map((category) => (
                   <NavigationMenuItem className=" text-lg" key={category.id}>
                     <Link href={`/shop/${category.name}`}>{category.name}</Link>
                   </NavigationMenuItem>
-                ))}
+                )): null}
               </NavigationMenuList>
             </NavigationMenu>
           </div>

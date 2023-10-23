@@ -49,7 +49,7 @@ export const fetchFeaturedProducts = async () => {
 export const fetchProductByID = async (_rev: string) => {
   const product: Product = await client.fetch({
     query: `
-          *[_type == "product" && _rev == ${_rev}]{
+          *[_type == "product" && _rev == "${_rev}"]{
               _rev,
                 name,
                 description,
@@ -69,7 +69,7 @@ export const fetchProductByCategory = async (_category: string) => {
   console.log(_category);
   const products: Product[] = await client.fetch({
     query: `
-      *[_type == "product" && category->name == ${_category}]{
+      *[_type == "product" && category->name == "${_category}"]{
         _rev,
           name,
           description,
@@ -106,7 +106,7 @@ export const fetchCategories = async () => {
 export const fetchCategoryById = async (_id: string) => {
   const category = await client.fetch({
     query: `
-    *[_type == category && _id == ${_id}]{
+    *[_type == category && _id == "${_id}"]{
       _id,
       name
     }

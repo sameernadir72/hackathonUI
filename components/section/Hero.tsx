@@ -25,7 +25,7 @@ const Hero = () => {
             </p>
             <div>
 
-              <Link href="/allprod">
+              <Link href="/shop">
                 <Button className="bg-black py-7   sm:text-left" >
                   <ShoppingCart className="mr-2 h-5 w-5" /> Start Shopping
                 </Button>

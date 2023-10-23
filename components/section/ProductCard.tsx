@@ -8,7 +8,7 @@ const ProductCard = ({ prop }: { prop: Product }) => {
   return (
     <div className="py-4">
       <Link className="" href={`/products/${_rev}`}>
-        <Image src={main_image.asset.url} alt="product image" width={200} height={200}></Image>
+        <Image src={main_image.asset.url} alt="product image" width={250} height={250} className="w-auto h-auto"></Image>
         <p className="font-poppins text-lg font-semibold  text-gray-900 mt-2 tracking-wide">
           {name}
         </p>

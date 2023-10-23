@@ -1,4 +1,4 @@
-"use client";
+
 import Navbar from "../../components/section/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -10,6 +10,7 @@ import { MenuIcon } from "lucide-react";
 import Menu from "components/section/Menu";
 import Image from "next/image";
 import { MenuProps } from "components/section/Menu";
+import { fetchCategories } from "./products";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,12 +23,12 @@ const inter = Inter({ subsets: ["latin"] });
 //   },
 // };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [hide, setHide] = useState(false);
+  const categories = await fetchCategories();
   return (
     <html lang="en">
       <head>
@@ -37,28 +38,11 @@ export default function RootLayout({
         ></link>
       </head>
       <body className={inter.className}>
-        {hide ? (
-          <Menu setHide={setHide} children={children} />
-        ) : (
           <CartContextProvider>
-            <div className=" sm:hidden">
-              <div className="flex  gap-4">
-                <Link href="/">
-                  <Image
-                    src={"/Logo.webp"}
-                    alt="website logo"
-                    width={200}
-                    height={250}
-                  />
-                </Link>
-                <MenuIcon onClick={() => setHide(true)} />
-              </div>
-            </div>
-            <Navbar />
+            <Navbar navLinks={categories}/>
             {children}
             <Footer />
           </CartContextProvider>
-        )}
       </body>
     </html>
   );

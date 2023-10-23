@@ -1,4 +1,59 @@
+import { Rule } from "postcss";
 import { defineField, defineType } from "sanity";
+
+// Landing Page
+
+export const landing = defineType({
+  name: "landing_page",
+  title: "Landing Page",
+  type: "document",
+  fields: [
+    defineField({
+      title: "Hero Section",
+      name: "hero",
+      type: "document",
+      fields: [
+        defineField({
+          name: "heading",
+          title: "Heading",
+          type: "string",
+          validation: (Rule) => Rule.required();
+        }),
+        defineField({
+          name: "sub_heading",
+          title: "Sub Heading",
+          type: "string",
+        }),
+        defineField({
+          name: "label",
+          title: "Label",
+          type: "string",
+        }),
+        defineField({
+          name: "image",
+          title: "Image",
+          type: "image",
+          validation: (Rule) => Rule.required()
+        }),
+      ]
+    }),
+    
+    defineField({
+      name: "hero_img",
+      title: "Hero Image",
+      type: "image",
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "hero_img",
+      title: "Hero Image",
+      type: "image",
+      validation: (Rule) => Rule.required(),
+    }),
+
+  ]
+});
+
 
 export const category = defineType({
   title: "Category",
