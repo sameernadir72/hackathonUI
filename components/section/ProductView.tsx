@@ -7,16 +7,17 @@ import { Key, ShoppingCart, X } from "lucide-react";
 import { Product } from "@/app/utils/types";
 import pro from "../../public/project.png";
 import { useContext, useState } from "react";
-import {
-  contextProduct,
-  contextVal,
-  totalAmount,
-} from "../../src/providers/CartContext";
+import { CartContext } from "../../src/providers/CartContext";
 
 export const ProductView = (product: Product) => {
-  const { cartItems, setCartItems } = useContext(contextVal);
-  const { cartProducts, setCartProducts } = useContext(contextProduct);
-  const { total, setTotal } = useContext(totalAmount);
+  const {
+    cartItems,
+    setCartItems,
+    cartProducts,
+    setCartProducts,
+    total,
+    setTotal,
+  } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
   const prodExistsInCart = () => {

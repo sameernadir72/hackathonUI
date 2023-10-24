@@ -6,8 +6,8 @@ import { FeaturedData, Product } from "@/app/utils/types";
 const Featured = ({ featuredProducts, data }: { featuredProducts: Product[], data: FeaturedData}) => {
   // console.log(featuredProducts[0]);
   return (
-    <div className="pt-20 space-y-14 ">
-      <div className="flex flex-col justify-center items-center gap-y-2">
+    <div className="">
+      <div className="flex flex-col ">
         <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-bold tracking-wider text-blue-600">
           PRODUCTS
         </p>
@@ -15,7 +15,7 @@ const Featured = ({ featuredProducts, data }: { featuredProducts: Product[], dat
           Check What We Have
         </h2>
       </div>
-      <div className="flex flex-col sm:flex-row justify-center items-center">
+      <div className="flex">
         {featuredProducts.map((product) => (
           <ProductCard prop={product} key={product._rev} />
         ))}

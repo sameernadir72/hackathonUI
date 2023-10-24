@@ -8,11 +8,6 @@ export type HeroSecData = {
     bgColor: string;
 }
 
-export type PromotionData = {
-    title: string;
-    banners: Image[];
-}
-
 export type FeaturedData = {
     title: string;
 }
@@ -45,6 +40,7 @@ export type Product = {
     isSoldOut: boolean,
     isFavourite: boolean,
     price: number,
-    subTotal:number
-    quantity: number
+    subTotal:number;
+    quantity: number;
+    _createdAt: Date;
 }

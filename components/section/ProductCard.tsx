@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ prop }: { prop: Product }) => {
-  const { _rev, name, subCategory, main_image, price } = prop || {};
+  const { _rev, name, subCategory, main_image, price } = prop ;
   console.log(_rev, name, subCategory, main_image, price);
   return (
     <div className="py-4">

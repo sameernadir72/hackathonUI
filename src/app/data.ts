@@ -1,18 +1,24 @@
 "use server";
 
 import { client } from "./utils/sanity-client";
-import { Category, FeaturedData, HeroSecData, Image, Product, PromotionData } from "./utils/types";
+import {
+  Category,
+  FeaturedData,
+  HeroSecData,
+  Image,
+  Product,
+} from "./utils/types";
 
 ////////////////////
 // Hero Section Data
 ////////////////////
 
 export const fetchLogo = async () => {
-  const logo:Image = await client.fetch({
-    query: `*[_type == "logo"]`
+  const logo: Image = await client.fetch({
+    query: `*[_type == "logo"]`,
   });
   return logo;
-}
+};
 
 export const fetchHeroSecData = async () => {
   const heroSecData: HeroSecData = await client.fetch({
@@ -24,16 +30,22 @@ export const fetchHeroSecData = async () => {
 };
 
 ///////////////////
-// Promotions Data
+// New Arrivals Data
 ///////////////////
 
-export const fetchPromotionsData = async () => {
-  const promData: PromotionData = await client.fetch({
-    query: `*[_type == "landing"]{
-     promotions
+export const fetchNewArrivalsData = async () => {
+  const newArrivals: Product[] = await client.fetch({
+    query: `*[_type == "product"]{
+      _rev,
+        name,
+        category -> {name},
+        main_image {asset-> {url}},
+        price,
+        subCategory,
+        _createdAt
     }`,
   });
-  return promData;
+  return newArrivals;
 };
 
 ///////////////////
@@ -48,8 +60,6 @@ export const fetchFeaturedData = async () => {
   });
   return featData;
 };
-
-
 
 ///////////////////
 // Products Data
@@ -140,13 +150,13 @@ export const fetchProductByCategory = async (_category: string) => {
 ///////////////////
 
 export const fetchCategories = async () => {
-  const categories:Category[] = await client.fetch({
-  query: `
+  const categories: Category[] = await client.fetch({
+    query: `
     *[_type == "category"]{
       _id,
       name
     }
-    `
+    `,
   });
   return categories;
 };
@@ -158,7 +168,7 @@ export const fetchCategoryById = async (_id: string) => {
       _id,
       name
     }
-    `
+    `,
   });
   return category;
 };

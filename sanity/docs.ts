@@ -50,25 +50,6 @@ export const landing = defineType({
     }),
 
     defineField({
-      title: "Promotions",
-      name: "promotions",
-      type: "document",
-      fields: [
-        defineField({
-          name: "title",
-          title: "Title",
-          type: "string",
-        }),
-        defineField({
-          name: "banners",
-          title: "Banners",
-          type: "array",
-          of: [{ type: "image" }],
-        }),
-      ],
-    }),
-
-    defineField({
       title: "Featured",
       name: "featured",
       type: "document",
