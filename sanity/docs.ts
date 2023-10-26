@@ -6,7 +6,14 @@ import { defineField, defineType } from "sanity";
 export const logo = defineField({
   name: "logo",
   title: "Logo",
-  type: "image"
+  type: "document",
+  fields: [
+    defineField({
+      title: "Image",
+      name: "logo",
+      type: "image"
+    })
+  ]
 });
 
 export const landing = defineType({

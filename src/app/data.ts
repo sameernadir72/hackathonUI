@@ -14,8 +14,10 @@ import {
 ////////////////////
 
 export const fetchLogo = async () => {
-  const logo: Image = await client.fetch({
-    query: `*[_type == "logo"]`,
+  const logo:Image = await client.fetch({
+    query: `*[_type == "logo"]{
+      logo {asset -> {url}}
+    }[0]`,
   });
   return logo;
 };
@@ -119,7 +121,7 @@ export const fetchProductByID = async (_rev: string) => {
                 price,
                 is_favourite,
                 is_soldOut,
-            }`,
+            }[0]`,
   });
   return product;
 };

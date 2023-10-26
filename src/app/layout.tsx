@@ -7,9 +7,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 import Menu from "components/section/Menu";
-import Image from "next/image";
 import { MenuProps } from "components/section/Menu";
-import { fetchCategories } from "./data";
+import { fetchCategories, fetchLogo } from "./data";
+import { Image } from "./utils/types";
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -26,11 +26,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const categories = await fetchCategories();
+  const { logo } = await fetchLogo();
+
   return (
     <html lang="en">
-      <body >
+      <body>
         <CartContextProvider>
-          <Navbar navLinks={categories} />
+          <Navbar navLinks={categories} logo={logo} />
           {children}
           <Footer />
         </CartContextProvider>

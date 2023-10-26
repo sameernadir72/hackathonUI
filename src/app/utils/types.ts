@@ -18,7 +18,7 @@ export type Image = {
     }
 }
 
-type Size = {
+export type Size = {
     name: string
 }
 

@@ -27,16 +27,23 @@ const sora = Sora({
   weight: "400",
 });
 
-const Navbar = ({ navLinks }: { navLinks: Category[] }) => {
+const Navbar = ({
+  navLinks,
+  logo,
+}: {
+  navLinks: Category[];
+  logo: {
+    asset: {
+      url: string;
+    };
+  };
+}) => {
   const { cartItems } = useContext(CartContext);
-  const [show, setShow] = useState(false);
 
   return (
     <nav className={`flex justify-between items-center ${sora.className}`}>
-      {/* <div className={`   lg:block hidden`}> */}
-
       <Link href="/">
-        <Image src={"/Logo.webp"} alt="logo" width={140} height={140} />
+        <Image src={logo.asset.url} alt="logo" width={140} height={140} />
       </Link>
 
       <div className="hidden md:block lg:block">
