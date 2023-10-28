@@ -40,7 +40,6 @@ export type Product = {
     isSoldOut: boolean,
     isFavourite: boolean,
     price: number,
-    subTotal:number;
     quantity: number;
     _createdAt: Date;
 }

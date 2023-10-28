@@ -13,7 +13,9 @@ import { orders } from "@/lib/drizzle";
 // import { createCheckoutSession } from "./checkout";
 
 export default function Page() {
-  const { cartProducts, cartItems, setCartItems, total } = useContext(CartContext);
+  // const { cartProducts, cartItems, setCartItems, total } = useContext(CartContext);
+  const [state, dispatch] = useContext(CartContext);
+  const {cartItems, cartProducts, total} = state;
 
   const handleCheckout = async () => {
     const checkoutSession = await axios.post(
@@ -32,6 +34,8 @@ export default function Page() {
     console.warn(error);
     
   };
+
+  console.log(total);
 
   return (
     <div className="mb-44">
@@ -63,7 +67,7 @@ export default function Page() {
               Quantity<p className="pl-7 w-max">{cartItems} Product</p>
             </span>
             <span className="flex font-poppins">
-              Sub Total<p className="pl-7">${total}</p>
+              Total<p className="pl-7">${total}</p>
             </span>
             <Button
               className="bg-black rounded-none w-max"

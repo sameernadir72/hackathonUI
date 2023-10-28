@@ -38,7 +38,8 @@ const Navbar = ({
     };
   };
 }) => {
-  const { cartItems } = useContext(CartContext);
+  // const { cartItems } = useContext(CartContext);
+  const [state, dispatch] = useContext(CartContext);
 
   return (
     <nav className={`flex justify-between items-center ${sora.className}`}>
@@ -78,7 +79,7 @@ const Navbar = ({
         <Link href="/cart">
           <ShoppingCart />
           <span className="absolute top-0 right-0 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
-            {cartItems}
+            {state.cartItems}
           </span>
         </Link>
       </div>

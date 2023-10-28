@@ -21,30 +21,32 @@ export const ProductView = (product: Product) => {
     description,
     isSoldOut,
   } = product;
- 
-  const [quantity, setQuantity] = useState(1);
+
+  // const [quantity, setQuantity] = useState(1);
   const router = useRouter();
   const pathName = usePathname();
   const searchParams = useSearchParams();
 
-  const {
-    cartItems,
-    setCartItems,
-    cartProducts,
-    setCartProducts,
-    total,
-    setTotal,
-  } = useContext(CartContext);
+  // const {
+  //   cartItems,
+  //   setCartItems,
+  //   cartProducts,
+  //   setCartProducts,
+  //   total,
+  //   setTotal,
+  // } = useContext(CartContext);
+
+  const [state, dispatch] = useContext(CartContext);
 
   const prodExistsInCart = () => {
-    cartProducts.map((p: Product) => {
-      if (p._rev == product._rev) {
-        setCartItems(cartItems + quantity);
-        p.quantity += quantity;
-        p.subTotal += product.price * quantity;
-        setTotal(total + p.price);
-      }
-    });
+    // cartProducts.map((p: Product) => {
+    //   if (p._rev == product._rev) {
+    //     setCartItems(cartItems + quantity);
+    //     p.quantity += quantity;
+    //     p.subTotal += product.price * quantity;
+    //     setTotal(total + p.price);
+    //   }
+    // });
   };
 
   // const addToCart = () => {
@@ -92,7 +94,11 @@ export const ProductView = (product: Product) => {
                 onClick={() => {
                   router.push(pathName + `?size=${s.name}`);
                 }}
-                className={`h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center ${searchParams.get('size') === s.name ? "bg-gray-300 rounded-full" : " "}
+                className={`h-10 w-10 hover:rounded-full hover:bg-gray-300 flex justify-center items-center ${
+                  searchParams.get("size") === s.name
+                    ? "bg-gray-300 rounded-full"
+                    : " "
+                }
                 cursor-pointer`}
               >
                 {s.name}
@@ -105,18 +111,16 @@ export const ProductView = (product: Product) => {
             <div className="flex gap-2">
               {/* <Button onClick={() => setQuantity(Math.max(quantity-1,1))} className="rounded-full"> */}
               <Button
-                onClick={() => setQuantity(Math.max(quantity - 1, 1))}
+                onClick={() => dispatch({ type: "DECREASE_QUANTITY" })}
                 className="rounded-full bg-slate-200 text-black text-xl"
               >
                 -
               </Button>
               <span className="w-9 justify-center items-center flex">
-                {quantity}
+                {state.quantity}
               </span>
               <Button
-                onClick={() => {
-                  setQuantity(quantity + 1);
-                }}
+                onClick={() => dispatch({ type: "INCREASE_QUANTITY" })}
                 className="rounded-full bg-slate-200 text-black text-xl"
               >
                 +
@@ -124,7 +128,15 @@ export const ProductView = (product: Product) => {
             </div>
           </div>
           <div className="flex gap-4 mt-3">
-            <Button className="bg-black py-6" onClick={() => {}}>
+            <Button
+              className="bg-black py-6"
+              onClick={() =>
+                dispatch({
+                  type: "ADD_TO_CART",
+                  payload: { items: state.quantity, product: product },
+                })
+              }
+            >
               <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart
             </Button>
             <div className="flex justify-center items-center text-2xl font-semibold font-poppins">
