@@ -130,11 +130,13 @@ export const ProductView = (product: Product) => {
           <div className="flex gap-4 mt-3">
             <Button
               className="bg-black py-6"
-              onClick={() =>
+              onClick={() =>{
+                product.quantity = product.quantity === undefined? state.quantity : product.quantity + state.quantity; 
                 dispatch({
                   type: "ADD_TO_CART",
                   payload: { items: state.quantity, product: product },
                 })
+              }
               }
             >
               <ShoppingCart className="mr-2 h-5 w-5" /> Add to Cart

@@ -53,7 +53,7 @@ export default function Page() {
             </h1>
           </div>
         ) : (
-          cartProducts.map((product: Product, index: number) => (
+          cartProducts.map((product, index) => (
             <CartView key={index} product={product} />
           ))
         )}

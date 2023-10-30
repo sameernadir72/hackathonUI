@@ -43,6 +43,7 @@ export default function CartView({ product }: { product: Product }) {
   // };
 
   const [state, dispatch] = useContext(CartContext);
+  console.log("product from Cart: ", product);
 
   return (
     <div className="">
@@ -67,7 +68,7 @@ export default function CartView({ product }: { product: Product }) {
             5 Working Days
           </p>
           <div className="flex">
-            <p className="text-xl font-semibold">${state.subTotal}</p>
+            <p className="text-xl font-semibold">${product.subTotal}</p>
             <div className="flex gap-2 ml-56">
               <Button
                 onClick={() => dispatch({type: "DECREASE_FROM_CART"})}

@@ -42,4 +42,5 @@ export type Product = {
     price: number,
     quantity: number;
     _createdAt: Date;
+    subTotal: number;
 }

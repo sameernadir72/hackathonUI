@@ -5,7 +5,6 @@ export interface State {
   cartItems: number;
   cartProducts: Product[];
   total: number;
-  subTotal: number;
 }
 
 export type ActionType =
@@ -13,8 +12,6 @@ export type ActionType =
   | "DECREASE_QUANTITY"
   | "ADD_TO_CART"
   | "DELETE_FROM_CART"
-  // | "ADD_PRODUCT_TO_CART"
-  // | "REMOVE_PRODUCT_FROM_CART"
   | "CALCULATE_TOTAL"
   | "INCREASE_FROM_CART"
   | "DECREASE_FROM_CART";
@@ -52,7 +49,7 @@ export const handleCartReducer = (state: State, action: Action) => {
         cartProducts: state.cartProducts.filter(
           (prod: Product) => prod._rev !== product._rev
         ),
-        total: state.total - state.subTotal,
+        total: state.total - product.subTotal,
         cartItems: state.cartItems - product.quantity,
       };
 
@@ -71,25 +68,20 @@ const addToCart = (_state: State, _payload: ActionPayload) => {
   const productExistsInCart = cartProducts.some(
     (prod: Product) => prod._rev === product._rev
   );
-  // product.quantity = (!productExistsInCart ? 0 : product.quantity) + items;
-  const updatedProduct = {
-    ...product,
-    quantity: productExistsInCart ? product.quantity + items : items,
-  };
-  console.log(productExistsInCart ? "product exists" : "product not exists");
-  console.log("updated product.quantity", updatedProduct.quantity);
+
+  product.subTotal =
+    product.subTotal === undefined ? 0 : product.quantity * product.price;
+
   return productExistsInCart
     ? {
         ..._state,
         cartItems: cartItems + items,
-        subTotal: product.price * updatedProduct.quantity,
         total: total + product.price * items,
       }
     : {
         ..._state,
         cartItems: cartItems + items,
-        cartProducts: [...cartProducts, updatedProduct],
-        subTotal: product.price * updatedProduct.quantity,
+        cartProducts: [...cartProducts, product],
         total: total + product.price * items,
       };
 };
