@@ -4,43 +4,9 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "@/providers/CartContext";
-// import {
-//   contextProduct,
-//   contextVal,
-//   totalAmount,
-// } from "../../src/providers/CartContext";
+
 
 export default function CartView({ product }: { product: Product }) {
-  // const { cartItems, setCartItems } = useContext(contextVal);
-  // const { cartProducts, setCartProducts } = useContext(contextProduct);
-  // const { total, setTotal } = useContext(totalAmount);
-
-  // const handleDeleteCart = () => {
-  //   const updatedCart: Product[] = cartProducts.filter(
-  //     (p: Product) => p.id !== product.id
-  //   );
-  //   setCartProducts(updatedCart);
-  //   setTotal(total - product.subTotal);
-  //   setCartItems(updatedCart.length);
-  // };
-
-  // const handleChangeQuantity = (increase: boolean) => {
-  //   cartProducts.map((pr: Product) => {
-  //     if (pr.id == product.id) {
-  //       if (increase) {
-  //         pr.quantity += 1;
-  //         pr.subTotal += pr.price;
-  //         setTotal((prevTotal: number) => prevTotal + pr.price);
-  //       } else {
-  //         if (product.quantity > 1) {
-  //           pr.quantity -= 1;
-  //           pr.subTotal -= pr.price;
-  //           setTotal((prevTotal: number) => prevTotal - pr.price);
-  //         }
-  //       }
-  //     }
-  //   });
-  // };
 
   const [state, dispatch] = useContext(CartContext);
   console.log("product from Cart: ", product);

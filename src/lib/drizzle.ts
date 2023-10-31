@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, serial, varchar, PgArray, bigint } from "drizzle-orm/pg-core";
 import { drizzle } from "drizzle-orm/vercel-postgres";
 
 
@@ -11,8 +11,9 @@ import { drizzle } from "drizzle-orm/vercel-postgres";
 // });
 
 export const orders = pgTable("orders", {
-    id: serial("order_id"),
-    product_id: varchar("product_id"),
+    id: serial("id"),
+    product_id: varchar ("product_id"),
+    total: bigint ("total", {mode: "bigint"}),
     payment_id: varchar("payment_id"),
 });
 
