@@ -3,11 +3,10 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ prop }: { prop: Product }) => {
-  const { _rev, name, subCategory, main_image, price } = prop ;
-  console.log(_rev, name, subCategory, main_image, price);
+  const { _rev, name, subCategory, main_image, price, size } = prop ;
   return (
     <div className="py-4">
-      <Link className="" href={`/products/${_rev}`}>
+      <Link className="" href={`/products/${_rev}${ size?'?size='.concat(size[0].name):"none"}`}>
         <Image src={main_image.asset.url} alt="product image" width={250} height={250} className="w-auto h-auto"></Image>
         <p className="font-poppins text-lg font-semibold  text-gray-900 mt-2 tracking-wide">
           {name}

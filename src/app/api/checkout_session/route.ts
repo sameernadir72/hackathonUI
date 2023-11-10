@@ -1,3 +1,5 @@
+import { Product } from "@/app/utils/types";
+import { db, orders } from "@/lib/drizzle";
 import stripe from "@/lib/utils";
 import { loadStripe } from "@stripe/stripe-js";
 import { StaticImageData } from "next/image";
@@ -13,7 +15,8 @@ interface ProductCheckoutProps {
 
 export async function POST(req: NextRequest){
     try {
-        const body: ProductCheckoutProps[] = await req.json(); // array of items
+        const body: Product[] = await req.json(); // array of items
+        const productIds: string[] = body.map((item) => item._rev);
         console.log(body);
 
         const line_items = body.map((item) => {
@@ -22,7 +25,7 @@ export async function POST(req: NextRequest){
                     currency: 'usd',
                     product_data: {
                         name: item.name,
-                        images: [req.nextUrl.origin+item.image.src],
+                        images: [req.nextUrl.origin+item.main_image.asset.url],
                     },
                     unit_amount: item.price * 100,
                 },
@@ -40,6 +43,11 @@ export async function POST(req: NextRequest){
         const session = await stripe.checkout.sessions.create(params);
         console.log('session_id', session.id);
         console.log('session_url',session.url);
+        const orderInserted = await db.insert(orders).values({
+            payment_id: session.url,
+            product_id: productIds,
+            total: BigInt()
+        });
         return NextResponse.json({id: session.id});
     } catch(err){
         console.log(err);

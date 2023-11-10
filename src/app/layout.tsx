@@ -30,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className="mx-28 my-8">
         <CartContextProvider>
           <Navbar navLinks={categories} logo={logo} />
           {children}

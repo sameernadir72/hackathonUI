@@ -22,52 +22,13 @@ export const ProductView = (product: Product) => {
     isSoldOut,
   } = product;
 
-  // const [quantity, setQuantity] = useState(1);
   const router = useRouter();
   const pathName = usePathname();
   const searchParams = useSearchParams();
 
-  // const {
-  //   cartItems,
-  //   setCartItems,
-  //   cartProducts,
-  //   setCartProducts,
-  //   total,
-  //   setTotal,
-  // } = useContext(CartContext);
-
   const [state, dispatch] = useContext(CartContext);
 
-  const prodExistsInCart = () => {
-    // cartProducts.map((p: Product) => {
-    //   if (p._rev == product._rev) {
-    //     setCartItems(cartItems + quantity);
-    //     p.quantity += quantity;
-    //     p.subTotal += product.price * quantity;
-    //     setTotal(total + p.price);
-    //   }
-    // });
-  };
-
-  // const addToCart = () => {
-  //   if (cartProducts.some((p: Product) => p._rev == product._rev)) {
-  //     prodExistsInCart();
-  //   } else {
-  //     const p = {
-  //       id: product.id,
-  //       name: product.name,
-  //       quantity: quantity,
-  //       subTotal: product.price * quantity,
-  //       image: product.image,
-  //       price: product.price,
-  //       subCategory: product.subCategory,
-  //     };
-  //     setCartItems(cartItems + quantity);
-  //     setCartProducts([...cartProducts, p]);
-  //     setTotal((prevTotal: number) => prevTotal + p.price);
-  //     console.log("cartItems", cartProducts);
-  //   }
-  // };
+  console.log('from product view: ', main_image);
 
   return (
     <div className="bg-zinc-50 mb-44">
@@ -167,17 +128,6 @@ export const ProductView = (product: Product) => {
           <p>{description}</p>
         </div>
 
-        {/* <div className="flex  space-x-10 gap-x-11">
-          <p className="scroll-m-20 text-lg font-bold tracking-tight text-gray-500">
-            PRODUCT CARE
-          </p>
-          <ol className="list-item list-disc">
-            <li>Hand wash using cold water.</li>
-            <li>Do not using bleach.</li>
-            <li>Hang it to dry.</li>
-            <li>Iron on low temperature.</li>
-          </ol> */}
-        {/* </div> */}
       </div>
     </div>
   );

@@ -21,6 +21,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Button } from "components/ui/button";
+import { useRouter } from "next/navigation";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -39,23 +41,29 @@ const Navbar = ({
   };
 }) => {
   // const { cartItems } = useContext(CartContext);
+  const router = useRouter();
   const [state, dispatch] = useContext(CartContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={`flex justify-between items-center ${sora.className}`}>
+    <nav className={`flex justify-between items-center ${sora.className} space-x-4`}>
+
       <Link href="/">
         <Image src={logo.asset.url} alt="logo" width={140} height={140} />
       </Link>
 
-      <div className="hidden md:block lg:block">
+      <div className="hidden md:block lg:block pt-1">
         <NavigationMenu>
-          <NavigationMenuList className="space-x-12">
-            <NavigationMenuItem className="text-lg">
+          <NavigationMenuList className="space-x-14">
+            <NavigationMenuItem className="text-[16px]">
               <Link href={`/shop`}>Shop</Link>
             </NavigationMenuItem>
             {navLinks != null
               ? navLinks.slice(0, 4).map((category) => (
-                  <NavigationMenuItem className=" text-lg" key={category.id}>
+                  <NavigationMenuItem
+                    className=" text-[16px]"
+                    key={category.id}
+                  >
                     <Link href={`/shop/${category.name}`}>{category.name}</Link>
                   </NavigationMenuItem>
                 ))
@@ -75,31 +83,45 @@ const Navbar = ({
         </div>
       </div>
 
-      <div className="p-2 rounded-full bg-gray-200 hover:scale ease-in duration-300  hidden lg:block md:block">
+      <div className="p-2 rounded-full bg-gray-200 hover:scale-110 transition duration-300  hidden lg:block md:block relative">
         <Link href="/cart">
           <ShoppingCart />
-          <span className="absolute top-0 right-0 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
+          <span className="absolute top-[-10px] right-0 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
             {state.cartItems}
           </span>
         </Link>
       </div>
 
       <div className="lg:hidden md:hidden sm:block ">
-        <Sheet>
-          <SheetTrigger>
+        <Sheet open={isOpen}>
+          <SheetTrigger onClick={() => setIsOpen(true)}>
             <Menu />
           </SheetTrigger>
           <SheetContent className="w-[300px]">
-            <SheetHeader className="gap-y-1">
+            <SheetHeader className="gap-y-1" >
               {navLinks != null
                 ? navLinks.slice(0, 6).map((category) => (
-                    <SheetTitle className=" text-lg" key={category.id}>
+                    <SheetTitle className=" text-lg" key={category.id} onClick={() => setIsOpen(false)}>
                       <Link href={`/shop/${category.name}`}>
                         {category.name}
                       </Link>
                     </SheetTitle>
                   ))
                 : null}
+              <SheetTitle>
+                <Button
+                  className={`w-full gap-x-2 ${sora.className} tracking-wider`}
+                  onClick={() => {
+                    router.push("/cart");
+                    setIsOpen(false)
+                  }}
+                >
+                  Cart{" "}
+                  <span className="right-0 h-6 w-6 rounded-full bg-black text-white flex items-center justify-center">
+                    {state.cartItems}
+                  </span>{" "}
+                </Button>
+              </SheetTitle>
             </SheetHeader>
           </SheetContent>
         </Sheet>

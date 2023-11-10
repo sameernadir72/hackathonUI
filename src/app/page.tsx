@@ -19,11 +19,14 @@ export default async function Home() {
   const newArrivalsData: Product[] = await fetchNewArrivalsData();
   const featuredData = await fetchFeaturedData();
 
-  newArrivalsData.map((product, index) => (
-    newArrivalsData[index]._createdAt = new Date(product._createdAt) 
-  ));
-  
-  const mostRecentProducts = newArrivalsData.sort((p1,p2) => p1._createdAt.getTime() - p2._createdAt.getTime()).reverse();
+  newArrivalsData.map(
+    (product, index) =>
+      (newArrivalsData[index]._createdAt = new Date(product._createdAt))
+  );
+
+  const mostRecentProducts = newArrivalsData
+    .sort((p1, p2) => p1._createdAt.getTime() - p2._createdAt.getTime())
+    .reverse();
 
   return (
     <main>

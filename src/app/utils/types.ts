@@ -36,7 +36,7 @@ export type Product = {
     subCategory: Category,
     size: Size[],
     main_image: Image,
-    images: Image[], 
+    images: Image[],
     isSoldOut: boolean,
     isFavourite: boolean,
     price: number,

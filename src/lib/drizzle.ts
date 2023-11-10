@@ -11,9 +11,9 @@ import { drizzle } from "drizzle-orm/vercel-postgres";
 // });
 
 export const orders = pgTable("orders", {
-    id: serial("id"),
-    product_id: varchar ("product_id"),
-    total: bigint ("total", {mode: "bigint"}),
+    id: serial("id").primaryKey(),
+    product_id: varchar ("product_id").array().notNull(),
+    total: bigint ("total", {mode: "bigint"}).notNull(),
     payment_id: varchar("payment_id"),
 });
 

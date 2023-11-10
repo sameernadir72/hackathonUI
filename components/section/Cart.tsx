@@ -5,7 +5,6 @@ import { Button } from "../ui/button";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "@/providers/CartContext";
 
-
 export default function CartView({ product }: { product: Product }) {
 
   const [state, dispatch] = useContext(CartContext);
@@ -23,12 +22,12 @@ export default function CartView({ product }: { product: Product }) {
         ></Image>
         <div className="mr-44 ml-7 space-y-3">
           <span className="flex text-xl font-poppins tracking-wide w-96">
-            {product.name}
+            {product.name + ` ()`}
             <button onClick={() => dispatch({type: "DELETE_FROM_CART", payload: {product: product, items: product.quantity}})}>
               <Trash2 className="ml-24" />
             </button>
           </span>
-          <p className="text-gray-500 font-semibold">{}</p>
+          <p className="text-gray-500 font-semibold">{product.subCategory.name}</p>
           <p className="font-semibold">Delivery Estimation</p>
           <p className="text-yellow-400 font-semibold text-base">
             5 Working Days

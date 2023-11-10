@@ -9,7 +9,7 @@ const Shop = async () => {
 
   if (products) {
     return (
-      <div className="grid sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-14 ml-5">
+      <div className="grid sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-14">
         {products.map((product, index) => (
           <ProductCard key={index} prop={product}></ProductCard>
         ))}
