@@ -4,7 +4,7 @@ export type HeroSecData = {
     label: string;
     heading: string;
     subHeading: string;
-    image: Image;
+    image: PImage;
     bgColor: string;
 }
 
@@ -12,7 +12,7 @@ export type FeaturedData = {
     title: string;
 }
 
-export type Image = {
+export type PImage = {
     asset: {
         url: string
     }
@@ -35,8 +35,8 @@ export type Product = {
     category: Category,
     subCategory: Category,
     size: Size[],
-    main_image: Image,
-    images: Image[],
+    main_image: PImage,
+    images: PImage[],
     isSoldOut: boolean,
     isFavourite: boolean,
     price: number,

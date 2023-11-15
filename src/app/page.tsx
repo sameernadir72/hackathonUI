@@ -3,7 +3,7 @@ import Footer from "../../components/section/Footer";
 import Newsletter from "../../components/section/newsletter";
 import Promotions from "../../components/section/NewArrivals";
 import Desc from "../../components/section/desc";
-import { HeroSecData, Product } from "./utils/types";
+import { HeroSecData, PImage, Product } from "./utils/types";
 import {
   fetchFeaturedData,
   fetchFeaturedProducts,
@@ -31,10 +31,12 @@ export default async function Home() {
   return (
     <main>
       <Hero data={heroSecData} />
+      <div className="space-y-40">
       <NewArrivals data={mostRecentProducts} />
       <Featured featuredProducts={featuredProducts} data={featuredData} />
-      <Desc />
+      <Desc descImage={newArrivalsData[0].main_image}/>
       <Newsletter />
+      </div>
     </main>
   );
 }

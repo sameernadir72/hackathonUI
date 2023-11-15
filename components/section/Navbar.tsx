@@ -23,11 +23,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "components/ui/button";
 import { useRouter } from "next/navigation";
-
-const sora = Sora({
-  subsets: ["latin"],
-  weight: "400",
-});
+import { sora, sora_light } from "@/app/layout";
 
 const Navbar = ({
   navLinks,
@@ -46,7 +42,7 @@ const Navbar = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={`flex justify-between items-center ${sora.className} space-x-4`}>
+    <nav className={`flex justify-between items-center ${sora_light.className} space-x-4`}>
 
       <Link href="/">
         <Image src={logo.asset.url} alt="logo" width={140} height={140} />
@@ -61,7 +57,7 @@ const Navbar = ({
             {navLinks != null
               ? navLinks.slice(0, 4).map((category) => (
                   <NavigationMenuItem
-                    className=" text-[16px]"
+                    className=" text-[18px]"
                     key={category.id}
                   >
                     <Link href={`/shop/${category.name}`}>{category.name}</Link>

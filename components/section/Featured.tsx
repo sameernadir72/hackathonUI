@@ -6,8 +6,8 @@ import { FeaturedData, Product } from "@/app/utils/types";
 const Featured = ({ featuredProducts, data }: { featuredProducts: Product[], data: FeaturedData}) => {
   // console.log(featuredProducts[0]);
   return (
-    <div className="">
-      <div className="flex flex-col ">
+    <div  className="space-y-7">
+      <div className="flex flex-col justify-center items-center">
         <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-bold tracking-wider text-blue-600">
           PRODUCTS
         </p>

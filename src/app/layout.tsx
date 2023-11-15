@@ -1,6 +1,6 @@
 import Navbar from "../../components/section/Navbar";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Cabin, Cormorant, Inter, Lato, Sora } from "next/font/google";
 import Footer from "../../components/section/Footer";
 import { CartContextProvider } from "../providers/CartContext";
 import { useState } from "react";
@@ -10,6 +10,31 @@ import Menu from "components/section/Menu";
 import { MenuProps } from "components/section/Menu";
 import { fetchCategories, fetchLogo } from "./data";
 import { Image } from "./utils/types";
+
+export const lato = Lato({
+  subsets: ["latin"],
+  weight: "900"
+});
+
+export const cabin = Cabin({
+  subsets: ["latin"],
+  weight: "400"
+});
+
+export const sora = Sora({
+  subsets: ["latin"],
+  weight: "700",
+});
+
+export const sora_light = Sora({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+export const sora_d = Sora({
+  subsets: ["latin"],
+  weight: "600",
+});
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -30,7 +55,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="mx-28 my-8">
+      <body className="px-32 my-8 space-y-24 max-w-[100vw]">
         <CartContextProvider>
           <Navbar navLinks={categories} logo={logo} />
           {children}

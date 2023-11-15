@@ -5,7 +5,7 @@ import {
   Category,
   FeaturedData,
   HeroSecData,
-  Image,
+  PImage,
   Product,
 } from "./utils/types";
 
@@ -14,7 +14,7 @@ import {
 ////////////////////
 
 export const fetchLogo = async () => {
-  const logo:Image = await client.fetch({
+  const logo:PImage = await client.fetch({
     query: `*[_type == "logo"]{
       logo {asset -> {url}}
     }[0]`,
@@ -29,6 +29,18 @@ export const fetchHeroSecData = async () => {
     }`,
   });
   return heroSecData;
+};
+
+////////////////////
+// Description Data
+////////////////////
+
+export const fetchDescData = async () => {
+  return await client.fetch({
+    query: `*[_type == "landing"]{
+     hero
+    }`,
+  });
 };
 
 ///////////////////
