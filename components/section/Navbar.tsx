@@ -8,7 +8,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "./../ui/navigation-menu";
-import { Category, Product } from "@/app/utils/types";
+import { Category, PImage, Product } from "@/app/utils/types";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../src/providers/CartContext";
 import { fetchCategories } from "@/app/data";
@@ -25,25 +25,16 @@ import { Button } from "components/ui/button";
 import { useRouter } from "next/navigation";
 import { sora, sora_light } from "@/app/layout";
 
-const Navbar = ({
-  navLinks,
-  logo,
-}: {
-  navLinks: Category[];
-  logo: {
-    asset: {
-      url: string;
-    };
-  };
-}) => {
+const Navbar = ({ navLinks, logo }: { navLinks: Category[]; logo: PImage }) => {
   // const { cartItems } = useContext(CartContext);
   const router = useRouter();
   const [state, dispatch] = useContext(CartContext);
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={`flex justify-between items-center ${sora_light.className} space-x-4`}>
-
+    <nav
+      className={`flex justify-between items-center ${sora_light.className} space-x-4`}
+    >
       <Link href="/">
         <Image src={logo.asset.url} alt="logo" width={140} height={140} />
       </Link>
@@ -94,10 +85,14 @@ const Navbar = ({
             <Menu />
           </SheetTrigger>
           <SheetContent className="w-[300px]">
-            <SheetHeader className="gap-y-1" >
+            <SheetHeader className="gap-y-1">
               {navLinks != null
                 ? navLinks.slice(0, 6).map((category) => (
-                    <SheetTitle className=" text-lg" key={category.id} onClick={() => setIsOpen(false)}>
+                    <SheetTitle
+                      className=" text-lg"
+                      key={category.id}
+                      onClick={() => setIsOpen(false)}
+                    >
                       <Link href={`/shop/${category.name}`}>
                         {category.name}
                       </Link>
@@ -109,7 +104,7 @@ const Navbar = ({
                   className={`w-full gap-x-2 ${sora.className} tracking-wider`}
                   onClick={() => {
                     router.push("/cart");
-                    setIsOpen(false)
+                    setIsOpen(false);
                   }}
                 >
                   Cart{" "}

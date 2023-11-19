@@ -4,9 +4,8 @@ import ProductCard from "./ProductCard";
 import { Cinzel, Cinzel_Decorative, Lato, Sora } from "next/font/google";
 import { lato } from "@/app/layout";
 
-
 const NewArrivals = ({ data }: { data: Product[] }) => {
-    return (
+  return (
     <div className="space-y-7">
       <div className={`mt-40 flex flex-col ${lato.className} justify-center items-center`}>
         <p className="leading-7 [&:not(:first-child)]:mt-6 text-sm font-bold tracking-wider text-blue-600 ">
@@ -17,12 +16,11 @@ const NewArrivals = ({ data }: { data: Product[] }) => {
         </h2>
       </div>
 
-      <div className="flex">
+      <div className="flex flex-wrap gap-x-4">
         {data.slice(0, 6).map((product) => (
           <ProductCard prop={product} key={product._rev} />
         ))}
       </div>
-      
     </div>
   );
 };

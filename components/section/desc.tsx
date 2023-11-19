@@ -13,10 +13,13 @@ const Desc = ({ descImage }: { descImage: PImage }) => {
           Unique and Authentic Vintage Designer Jewellery
         </h1>
       </div>
+      
       <div className={`bg-slate-50 pt-24 ${sora_light.className}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-5 md:gap-x-5 ">
+          <p className={`text-[6.875rem] ${sora.className} leading-[110px] absolute -mt-4 -z-10`}>Different<br/>from<br/>others</p>
           <div className={`space-y-4`}>
-            <h4 className="scroll-m-20 w-44 text-lg font-semibold tracking-tight leading-6">
+            
+            <h4 className="scroll-m-20 w-44 text-md font-semibold tracking-tight leading-6">
               Using Good Quality Materials
             </h4>
             <p className="w-44 opacity-75">

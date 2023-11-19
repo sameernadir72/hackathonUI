@@ -6,19 +6,19 @@ import { CartContextProvider } from "../providers/CartContext";
 import { useState } from "react";
 import Link from "next/link";
 import { MenuIcon } from "lucide-react";
-import Menu from "components/section/Menu";
+import Menu from "components/section/Menu"; 
 import { MenuProps } from "components/section/Menu";
 import { fetchCategories, fetchLogo } from "./data";
-import { Image } from "./utils/types";
+import { PImage } from "./utils/types";
 
 export const lato = Lato({
   subsets: ["latin"],
-  weight: "900"
+  weight: "900",
 });
 
 export const cabin = Cabin({
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
 });
 
 export const sora = Sora({
@@ -51,8 +51,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const categories = await fetchCategories();
-  const { logo } = await fetchLogo();
-
+  const { logo }: any = await fetchLogo();
   return (
     <html lang="en">
       <body className="px-32 my-8 space-y-24 max-w-[100vw]">
